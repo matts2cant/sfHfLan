@@ -1,0 +1,3 @@
+check:
+  magic_quotes_gpc: on
+  register_globals: on

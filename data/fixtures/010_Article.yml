@@ -1,0 +1,201 @@
+Article:
+  article_1:
+    image:        image1.png
+    url:          http://www.google.fr
+    title:        Introduction d’un nouveau jeu !
+    content:      |
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur.
+    is_shown:     true
+    Category:     blog
+    
+  article_2:
+    image:        image2.png
+    url:          http://www.hf-lan.fr
+    title:        La date de la prochaine édition est arrivée
+    content:      |
+      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+      doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
+      inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+      Nemo enim ipsam voluptatem quia voluptas.
+    is_shown:     true
+    Category:     blog
+    
+  article_3:
+    image:        image3.png
+    url:          http://www.clubic.fr
+    title:        Mise en ligne du nouveau site
+    content:      |
+      Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
+      consectetur, adipisci velit, sed quia non numquam eius modi tempora
+      incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad
+      minima veniam, quis nostrum exercitationem ullam corporis suscipit
+      laboriosam.
+    is_shown:     true
+    Category:     blog
+    
+  article_4:
+    image:        image4.png
+    url:          http://www.jeuxvideo.fr
+    title:        Nouveau membres dans le staff !
+    content:      |
+      Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam
+      nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas
+      nulla pariatur. Temporibus autem quibusdam et aut officiis debitis aut
+      rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et
+      molestiae non recusandae.
+    is_shown:     true
+    Category:     blog
+  article_5:
+    image:        image1.png
+    url:          http://www.google.fr
+    title:        Introduction d’un nouveau jeu !
+    content:      |
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur.
+    is_shown:     true
+    Category:     blog
+    
+  article_6:
+    image:        image2.png
+    url:          http://www.hf-lan.fr
+    title:        La date de la prochaine édition est arrivée
+    content:      |
+      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+      doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
+      inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+      Nemo enim ipsam voluptatem quia voluptas.
+    is_shown:     true
+    Category:     blog
+    
+  article_7:
+    image:        image3.png
+    url:          http://www.clubic.fr
+    title:        Mise en ligne du nouveau site
+    content:      |
+      Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
+      consectetur, adipisci velit, sed quia non numquam eius modi tempora
+      incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad
+      minima veniam, quis nostrum exercitationem ullam corporis suscipit
+      laboriosam.
+    is_shown:     true
+    Category:     blog
+    
+  article_8:
+    image:        image4.png
+    url:          http://www.jeuxvideo.fr
+    title:        Nouveau membres dans le staff !
+    content:      |
+      Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam
+      nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas
+      nulla pariatur. Temporibus autem quibusdam et aut officiis debitis aut
+      rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et
+      molestiae non recusandae.
+    is_shown:     true
+    Category:     blog
+  article_9:
+    image:        image1.png
+    url:          http://www.google.fr
+    title:        Introduction d’un nouveau jeu !
+    content:      |
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur.
+    is_shown:     true
+    Category:     blog
+    
+  article_10:
+    image:        image2.png
+    url:          http://www.hf-lan.fr
+    title:        La date de la prochaine édition est arrivée
+    content:      |
+      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+      doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
+      inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+      Nemo enim ipsam voluptatem quia voluptas.
+    is_shown:     true
+    Category:     blog
+    
+  article_11:
+    image:        image3.png
+    url:          http://www.clubic.fr
+    title:        Mise en ligne du nouveau site
+    content:      |
+      Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
+      consectetur, adipisci velit, sed quia non numquam eius modi tempora
+      incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad
+      minima veniam, quis nostrum exercitationem ullam corporis suscipit
+      laboriosam.
+    is_shown:     true
+    Category:     blog
+    
+  article_12:
+    image:        image4.png
+    url:          http://www.jeuxvideo.fr
+    title:        Nouveau membres dans le staff !
+    content:      |
+      Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam
+      nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas
+      nulla pariatur. Temporibus autem quibusdam et aut officiis debitis aut
+      rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et
+      molestiae non recusandae.
+    is_shown:     true
+    Category:     blog
+  article_13:
+    image:        image1.png
+    url:          http://www.google.fr
+    title:        Introduction d’un nouveau jeu !
+    content:      |
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur.
+    is_shown:     true
+    Category:     blog
+    
+  article_14:
+    image:        image2.png
+    url:          http://www.hf-lan.fr
+    title:        La date de la prochaine édition est arrivée
+    content:      |
+      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+      doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
+      inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+      Nemo enim ipsam voluptatem quia voluptas.
+    is_shown:     true
+    Category:     blog
+    
+  article_15:
+    image:        image3.png
+    url:          http://www.clubic.fr
+    title:        Mise en ligne du nouveau site
+    content:      |
+      Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
+      consectetur, adipisci velit, sed quia non numquam eius modi tempora
+      incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad
+      minima veniam, quis nostrum exercitationem ullam corporis suscipit
+      laboriosam.
+    is_shown:     true
+    Category:     blog
+    
+  article_16:
+    image:        image4.png
+    url:          http://www.jeuxvideo.fr
+    title:        Nouveau membres dans le staff !
+    content:      |
+      Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam
+      nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas
+      nulla pariatur. Temporibus autem quibusdam et aut officiis debitis aut
+      rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et
+      molestiae non recusandae.
+    is_shown:     true
+    Category:     blog

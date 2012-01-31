@@ -1,0 +1,29 @@
+#footer
+{
+	clear: both;
+	width: 100%;
+	border-top: solid 3px #b7d24d;
+	position: relative;
+	top: 20px;
+	margin-bottom: 40px;
+}
+
+#footer table
+{
+	width: 100%;
+}
+
+#footer table tr th
+{
+	color: #b7d24d;
+	text-align: left;
+	font-weight: bold;
+	padding-left: 60px;
+}
+
+#footer table tr td
+{
+	vertical-align: top;
+	padding-left: 80px;
+	color: #808080;
+}

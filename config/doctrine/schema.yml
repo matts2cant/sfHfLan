@@ -1,0 +1,27 @@
+Article:
+  actAs:
+    Timestampable: ~
+    Sluggable:
+      unique: true
+      fields: [title]
+      canUpdate: true
+  columns:
+    category_id:  { type: integer, notnull: true }
+    image:        { type: string(255) }
+    url:          { type: string(255) }
+    title:        { type: string(255) }
+    content:      { type: string(4000), notnull: true }
+    is_shown:     { type: boolean, notnull: true, default: 0 }
+    email:        { type: string(255), notnull: true }
+  relations:
+    Category: { onDelete: CASCADE, local: category_id, foreign: id, foreignAlias: Articles }
+    
+Category:
+  actAs:
+    Timestampable: ~
+    Sluggable:
+      unique: true
+      fields: [name]
+      canUpdate: true
+  columns:
+    name: { type: string(255), notnull: true, unique: true }

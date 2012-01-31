@@ -1,0 +1,24 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+# homepage rules
+homepage:
+  url:   /
+  param: { module: home, action: index }
+
+# blog rules
+blog_list:
+  url:   blog
+  param:   { module: blog, action: list }
+  requirements:
+    sf_method: [get]
+    
+# blog rules
+blog_view:
+  url:   blog/:slug
+  class:   sfDoctrineRoute
+  options: { model: Article,   type: object }
+  param:   { module: blog, action: show }
+  requirements:
+    id: \d+
+    sf_method: [get]

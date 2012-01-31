@@ -1,0 +1,80 @@
+#header
+{
+	width: 100%;
+	height: 125px;
+	background-image: url('../images/logo.png');
+	background-repeat: no-repeat;
+}
+
+#headermenu
+{
+	width: 300px;
+	float: right;
+}
+
+#loginbox
+{
+	width: 100%;
+	height: 29px;
+	padding-top: 3px;
+	background-image: url('../images/loginbox.png');
+	background-repeat: no-repeat;
+	text-align: center;
+	font-size: 11pt;
+	color: #FFFFFF;
+	margin-bottom: 30px;
+}
+
+#loginbox a
+{
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+.separator
+{
+	color: #7f9f00;
+}
+
+#searchbox ul
+{
+	list-style-type: none;
+	list-style-image: none;
+}
+
+#searchbox ul li
+{
+	float: left;
+}
+
+#searchbox ul a
+{
+	display:block;
+	background-image: url(../images/search_icon.png);
+	background-repeat: no-repeat;
+	background-position: 7px 9px;
+	width: 76px;
+	height: 30px;
+	background-color: #d7e4a2;
+	display: inline-block;
+	float: left;
+	color: white;
+	line-height: 28px;
+	padding-left: 22px;
+	padding-right: 7px;
+	font-weight: normal;
+}
+
+#searchbox ul li .input
+{
+	display: block;
+	background-color: #FFFFFF;
+	line-height: 24px;
+	height: 28px;
+	width: 170px;
+	border: solid 1px #e6e6e6;
+	float: left;
+	margin-right: 5px;
+	padding: 0 9px;
+	color: #bfbfbf;
+}

@@ -1,0 +1,42 @@
+#menu
+{
+	clear: both;
+	margin-bottom: 10px;
+	
+}
+
+#menu ul
+{
+	list-style-type: none;
+	list-style-image: none;
+}
+
+#menu ul li
+{
+	float: left;
+	background-color: #77a6b5;
+	padding: 8px 0px 8px 0px;
+	font-size: 13pt;
+	text-align: center;
+	color: #FFFFFF;
+	width: 124px;
+	margin-right: 1px;
+}
+
+#menu ul li a
+{
+	color: #FFFFFF;
+	font-size: 14pt;
+}
+
+#menu ul .last
+{
+	width: 125px;
+	margin: 0;
+}
+
+#menu ul li:hover
+{
+	background-color: #adccd6;
+}
+

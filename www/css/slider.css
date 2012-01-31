@@ -1,0 +1,105 @@
+#slider
+{
+	float: left;
+}
+
+#banner {
+	clear: both;
+	height:320px;
+	padding-top:0px;
+	padding-bottom:10px;
+	position: relative;
+	width:710px;
+}
+
+#banner .contentdiv {
+	visibility: hidden; /*leave as is*/
+	position: relative; /*leave as is*/
+	left: 0;  /*leave as is*/
+	top: 0;  /*leave as is*/
+	width: 710px; /*width of content DIVs within slider. Total width should equal slider's inner width (390+5+5=400) */
+	height:320px;
+}
+
+.banner_des {
+	width:520px;
+	height:66px;
+	padding-right:167px;
+	color:#fff;
+	padding-left:20px;
+	padding-top:12px;
+	position:absolute;
+	bottom:1px;
+	left:1px;
+	background-image:url(../images/bannerdesc.png);
+}
+.banner_des h4 {
+	font-weight: 900;
+	padding-bottom:2px;
+	color:#fff!important;
+}
+.banner_des p {
+	padding-right:80px;
+}
+#slider2 {
+	width:710px;
+	position:relative;
+	padding-top:0px;
+	margin:auto;
+	height:320px;
+	overflow:hidden;
+}
+.pagination {
+	width:auto; /*Width of pagination DIV. Total width should equal slider's outer width (400+10+10=420)*/
+	float:right;
+	right:15px;
+	bottom:27px;
+	z-index:9999;
+	position:absolute;
+}
+.pagination a {
+	background:#77a6b5;
+	width:23px;
+	line-height:23px;
+	text-align:center;
+	line-height:23px;
+	color:#fff;
+	display:inline-block;
+	margin-right:1px;
+	font-weight:bold;
+}
+.pagination a:hover, .pagination a.selected {
+	background-color:#adccd6;
+}
+.pagination a:hover, .pagination a.selected {
+	background-color:#adccd6;
+}
+.pagination a.prev {
+	font-size:0px;
+	display:none;
+}
+.pagination a.next {
+	font-size:0px;
+	display:none;
+}
+#banner1 {
+	width:710px;
+	height:210px;
+	padding-bottom:10px;
+	position:relative;
+}
+#banner1 .heading {
+	position:absolute;
+	background-image:url(../images/bannerdesc.png);
+	left:1px;
+	bottom:11px;
+	width:680px;
+	height:37px;
+	padding-left:22px;
+	padding-top:14px;
+}
+#banner1 .heading h1 {
+	font-weight:bold;
+	font-size:22px;
+	color:#fff!important;
+}
