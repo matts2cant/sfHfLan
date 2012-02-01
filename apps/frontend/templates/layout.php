@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<?php use_stylesheet('style.css', 'first') ?>
+<?php use_stylesheet('frontend.css', 'first') ?>
 <?php use_stylesheet('header.css') ?>
 <?php use_stylesheet('fonts.css') ?>
 <?php use_stylesheet('footer.css') ?>
@@ -40,8 +40,8 @@
             <div id="menu">
                 <ul>
                     <li><a href="<?php echo url_for("home/index"); ?>">Accueil</a></li>
-                    <li><a href="#">Informations</a></li>
-                    <li><a href="#">Médias</a></li>
+                    <li><a href="<?php echo url_for("infos/index"); ?>">Informations</a></li>
+                    <li><a href="<?php echo url_for("blog/list"); ?>">Blog</a></li>
                     <li><a href="#">Partenaires</a></li>
                     <li><a href="#">Contact</a></li>
                     <li><a href="#">Accès</a></li>

@@ -15,6 +15,10 @@
         </div>
         <div class="tab_content" id="tab1" style="display: block;">
             <?php include_partial('blog/list', array('blogArticles' => $blogArticles)); ?>
+            <br/>
+            <center>
+                <a class="other" href="<?php echo url_for('blog/list'); ?>">Autres articles</a>
+            </center>
             <div class="clear"></div>
         </div>
 

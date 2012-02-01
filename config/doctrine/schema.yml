@@ -25,3 +25,55 @@ Category:
       canUpdate: true
   columns:
     name: { type: string(255), notnull: true, unique: true }
+    
+Event:
+  actAs:
+    Timestampable: ~
+    Sluggable:
+      unique: true
+      fields: [name]
+      canUpdate: true
+  columns:
+    name: { type: string(255), notnull: true, unique: true }
+    starts_at: { type: timestamp }
+    finishes_at: { type: timestamp }
+    entry_prize: { type: integer }
+    is_public:    { type: boolean, notnull: true, default: 1 }
+    
+Tournament:
+  columns:
+    name: { type: string(255), notnull: true, unique: true }
+    number_of_teams: { type: integer, notnull: true }
+    prize_pool: { type: integer, notnull: true }
+    inscription_prize: { type: integer }
+    event_id:  { type: integer, notnull: true }
+    game_id: { type: integer, notnull: true }
+  relations:
+    Event: { onDelete: CASCADE, local: event_id, foreign: id, foreignAlias: Tournaments }
+    Game: { onDelete: CASCADE, local: game_id, foreign: id, foreignAlias: Tournaments }
+    
+Game:
+  actAs:
+    Sluggable:
+      unique: true
+      fields: [name]
+      canUpdate: true
+  columns:
+    name: { type: string(255), notnull: true, unique: true }
+    rules_file: { type: string(255), notnull: true, unique: true }
+    players_per_team: { type: string(255), notnull: true, unique: true }
+    icon: { type: string(255), notnull: true, unique: true }
+    
+Partner:
+  actAs:
+    Timestampable: ~
+    Sluggable:
+      unique: true
+      fields: [name]
+      canUpdate: true
+  columns:
+    name: { type: string(255), notnull: true, unique: true }
+    logo: { type: string(255), notnull: true }
+    description: { type: text }
+    sort_index: { type: integer }
+    url: { type: string(255), notnull: true }

@@ -3,7 +3,7 @@
         <?php echo $article->getTitle();?>
     </h2>
     <div class="date">
-        News parue le <?php echo $article->getDateTimeObject('created_at')->format('d-m-Y');?>
+        Article paru le <?php echo $article->getDateTimeObject('created_at')->format('d-m-Y');?>
         à <?php echo $article->getDateTimeObject('created_at')->format('H:m');?>
     </div>
     <br/>

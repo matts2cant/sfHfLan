@@ -1,0 +1,70 @@
+partner:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Partner
+    module:               partner
+    prefix_path:          /partner
+    column:               id
+    with_wildcard_routes: true
+
+game:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Game
+    module:               game
+    prefix_path:          /game
+    column:               id
+    with_wildcard_routes: true
+
+tournament:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Tournament
+    module:               tournament
+    prefix_path:          /tournament
+    column:               id
+    with_wildcard_routes: true
+
+event:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Event
+    module:               event
+    prefix_path:          /event
+    column:               id
+    with_wildcard_routes: true
+
+category:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Category
+    module:               category
+    prefix_path:          /category
+    column:               id
+    with_wildcard_routes: true
+
+article:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Article
+    module:               article
+    prefix_path:          /article
+    column:               id
+    with_wildcard_routes: true
+
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+# default rules
+homepage:
+  url:   /
+  param: { module: article, action: index }
+
+# generic rules
+# please, remove them by adding more specific rules
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*

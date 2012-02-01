@@ -22,3 +22,9 @@ blog_view:
   requirements:
     id: \d+
     sf_method: [get]
+
+infos_index:
+  url:   infos
+  param:   { module: infos, action: index }
+  requirements:
+    sf_method: [get]
