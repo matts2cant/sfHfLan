@@ -1,0 +1,4 @@
+## YAML Template.
+prod:
+  .settings: 
+    no_script_name:  false

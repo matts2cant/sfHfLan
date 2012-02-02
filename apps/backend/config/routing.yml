@@ -3,7 +3,7 @@ partner:
   options:
     model:                Partner
     module:               partner
-    prefix_path:          /partner
+    prefix_path:          /admin/partner
     column:               id
     with_wildcard_routes: true
 
@@ -12,7 +12,7 @@ game:
   options:
     model:                Game
     module:               game
-    prefix_path:          /game
+    prefix_path:          /admin/game
     column:               id
     with_wildcard_routes: true
 
@@ -21,7 +21,7 @@ tournament:
   options:
     model:                Tournament
     module:               tournament
-    prefix_path:          /tournament
+    prefix_path:          /admin/tournament
     column:               id
     with_wildcard_routes: true
 
@@ -30,7 +30,7 @@ event:
   options:
     model:                Event
     module:               event
-    prefix_path:          /event
+    prefix_path:          /admin/event
     column:               id
     with_wildcard_routes: true
 
@@ -39,7 +39,7 @@ category:
   options:
     model:                Category
     module:               category
-    prefix_path:          /category
+    prefix_path:          /admin/category
     column:               id
     with_wildcard_routes: true
 
@@ -48,7 +48,7 @@ article:
   options:
     model:                Article
     module:               article
-    prefix_path:          /article
+    prefix_path:          /admin/article
     column:               id
     with_wildcard_routes: true
 
@@ -59,12 +59,16 @@ article:
 homepage:
   url:   /
   param: { module: article, action: index }
+  
+homepage_admin:
+  url:   /admin/
+  param: { module: article, action: index }
 
 # generic rules
 # please, remove them by adding more specific rules
 default_index:
-  url:   /:module
+  url:   /admin/:module
   param: { action: index }
 
 default:
-  url:   /:module/:action/*
+  url:   /admin/:module/:action/*

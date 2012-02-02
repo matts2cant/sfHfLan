@@ -18,5 +18,12 @@ Options +FollowSymLinks +ExecCGI
   RewriteCond %{REQUEST_FILENAME} !-f
 
   # no, so we redirect to our front web controller
+  # 1) /admin => backend controller
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^admin(.*)$ backend.php [QSA,L]
+  
+  # 2) other => frontend controller
+  RewriteCond %{REQUEST_FILENAME} !-f
   RewriteRule ^(.*)$ index.php [QSA,L]
+  
 </IfModule>
