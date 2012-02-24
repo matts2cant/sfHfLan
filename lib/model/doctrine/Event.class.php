@@ -12,5 +12,5 @@
  */
 class Event extends BaseEvent
 {
-
+    
 }

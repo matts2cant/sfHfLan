@@ -17,12 +17,34 @@ class ArticleTable extends Doctrine_Table
         return Doctrine_Core::getTable('Article');
     }
     
-    public function getBlogsQuery()
+    public function getPublishedBlogsQuery()
     {
         $query = self::getInstance()
             ->createQuery('a')
-            ->leftJoin('a.Category c')
-            ->where('c.slug = ?', 'blog')
+            ->where('a.type = ?', 'blog')
+            ->andWhere("a.is_shown = ?", 1)
+            ->orderBy('a.created_at DESC');
+        
+        return $query;
+    }
+    
+    public function getPublishedQueryWithSearch($text)
+    {
+        $query = $this->createQuery('a')
+            ->where("a.is_shown = ?", 1)
+            ->orderBy('a.created_at DESC');
+        
+        $query = $this->search($text, $query);
+        
+        return $query;
+    }
+    
+    public function getPublishedSliderQuery()
+    {
+        $query = self::getInstance()
+            ->createQuery('a')
+            ->where('a.type = ?', 'slider')
+            ->andWhere("a.is_shown = ?", 1)
             ->orderBy('a.created_at DESC');
         
         return $query;
@@ -30,13 +52,23 @@ class ArticleTable extends Doctrine_Table
     
     public function getFourLastBlogArticles()
     {
-        $query = self::getInstance()->getBlogsQuery()->limit(4);
+        $query = self::getInstance()->getPublishedBlogsQuery()
+                ->limit(4);
+        
+        return $query->execute();
+    }
+    
+    public function getFourLastSliderArticles()
+    {
+        $query = self::getInstance()->getPublishedSliderQuery()
+                ->limit(4);
+        
         return $query->execute();
     }
     
     public function getBlogArticles()
     {
-        $query = self::getInstance()->getBlogsQuery();
+        $query = self::getInstance()->getPublishedBlogsQuery();
         return $query->execute();
     }
 }

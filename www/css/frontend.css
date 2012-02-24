@@ -105,3 +105,41 @@ body
 {
     clear: both;
 }
+
+.flash_notice,
+.flash_error
+{
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px 0px 8px 0px;
+    font-size: 13pt;
+    text-align: center;
+}
+
+.flash_notice
+{
+    background-color: #d7e4a2;
+    color: #7f9f00;
+    border-top: solid 1px #b7d24d;
+    border-bottom: solid 1px #b7d24d;
+}
+
+.flash_error
+{
+    background-color: #e4a2a2;
+    color: #9f0000;
+    border-top: solid 1px #d24d4d;
+    border-bottom: solid 1px #d24d4d;
+}
+
+ul.error_list
+{
+    color: #9f0000;
+    list-style-image: url('../images/bullet_error.png');
+    display: inline;
+}
+
+ul.error_list li
+{
+    margin-left: 28px;
+}

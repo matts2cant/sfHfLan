@@ -1,0 +1,20 @@
+sfGuardUser:
+  User_admin:
+    first_name:     Matthieu
+    last_name:      de Canteloube
+    email_address:  matts2cant@gmail.com
+    username:       admin
+    password:       hfp455w0rd
+    is_super_admin: true
+    Groups:         [Group_admin]
+
+sfGuardPermission:
+  Permission_admin:
+    name:           admin
+    description:    Administrator permission
+    
+sfGuardGroup:
+  Group_admin:
+    name:           admin
+    description:    Administrator group
+    Permissions:    [Permission_admin]

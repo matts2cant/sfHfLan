@@ -12,5 +12,8 @@
  */
 class Article extends BaseArticle
 {
-    
+    public function getImagePath()
+    {
+      return sfConfig::get('sf_upload_dir').'/articles/'. $this->getImage();
+    }
 }

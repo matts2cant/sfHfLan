@@ -17,8 +17,9 @@ abstract class BaseGameForm extends BaseFormDoctrine
     $this->setWidgets(array(
       'id'               => new sfWidgetFormInputHidden(),
       'name'             => new sfWidgetFormInputText(),
-      'rules_file'       => new sfWidgetFormInputText(),
+      'rules'            => new sfWidgetFormInputText(),
       'players_per_team' => new sfWidgetFormInputText(),
+      'requires_bnet_id' => new sfWidgetFormInputCheckbox(),
       'icon'             => new sfWidgetFormInputText(),
       'slug'             => new sfWidgetFormInputText(),
     ));
@@ -26,20 +27,15 @@ abstract class BaseGameForm extends BaseFormDoctrine
     $this->setValidators(array(
       'id'               => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'name'             => new sfValidatorString(array('max_length' => 255)),
-      'rules_file'       => new sfValidatorString(array('max_length' => 255)),
-      'players_per_team' => new sfValidatorString(array('max_length' => 255)),
-      'icon'             => new sfValidatorString(array('max_length' => 255)),
+      'rules'            => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'players_per_team' => new sfValidatorInteger(),
+      'requires_bnet_id' => new sfValidatorBoolean(),
+      'icon'             => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'slug'             => new sfValidatorString(array('max_length' => 255, 'required' => false)),
     ));
 
     $this->validatorSchema->setPostValidator(
-      new sfValidatorAnd(array(
-        new sfValidatorDoctrineUnique(array('model' => 'Game', 'column' => array('name'))),
-        new sfValidatorDoctrineUnique(array('model' => 'Game', 'column' => array('rules_file'))),
-        new sfValidatorDoctrineUnique(array('model' => 'Game', 'column' => array('players_per_team'))),
-        new sfValidatorDoctrineUnique(array('model' => 'Game', 'column' => array('icon'))),
-        new sfValidatorDoctrineUnique(array('model' => 'Game', 'column' => array('slug'))),
-      ))
+      new sfValidatorDoctrineUnique(array('model' => 'Game', 'column' => array('slug')))
     );
 
     $this->widgetSchema->setNameFormat('game[%s]');

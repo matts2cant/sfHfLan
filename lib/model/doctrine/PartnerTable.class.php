@@ -16,4 +16,13 @@ class PartnerTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Partner');
     }
+    
+    public function getAll()
+    {
+        $query = self::getInstance()
+            ->createQuery('p')
+            ->orderBy('p.sort_index ASC');
+        
+        return $query->execute();
+    }
 }

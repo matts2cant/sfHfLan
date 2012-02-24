@@ -1,4 +1,5 @@
 <?php use_stylesheet('blog.css') ?>
+<?php slot('title', 'hf.lan &raquo; Blog'); ?>
 
 <div class="left">
     <div class="content">
@@ -25,5 +26,5 @@
 </div>
 <div class="right">
     <?php include_partial("global/infobox"); ?>
-    <?php include_partial("global/countbox"); ?>
+    <?php include_component("boxes","countbox"); ?>
 </div>

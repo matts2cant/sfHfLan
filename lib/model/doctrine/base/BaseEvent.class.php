@@ -10,6 +10,7 @@
  * @property timestamp $finishes_at
  * @property integer $entry_prize
  * @property boolean $is_public
+ * @property boolean $is_opened
  * @property Doctrine_Collection $Tournaments
  * 
  * @method string              getName()        Returns the current record's "name" value
@@ -17,12 +18,14 @@
  * @method timestamp           getFinishesAt()  Returns the current record's "finishes_at" value
  * @method integer             getEntryPrize()  Returns the current record's "entry_prize" value
  * @method boolean             getIsPublic()    Returns the current record's "is_public" value
+ * @method boolean             getIsOpened()    Returns the current record's "is_opened" value
  * @method Doctrine_Collection getTournaments() Returns the current record's "Tournaments" collection
  * @method Event               setName()        Sets the current record's "name" value
  * @method Event               setStartsAt()    Sets the current record's "starts_at" value
  * @method Event               setFinishesAt()  Sets the current record's "finishes_at" value
  * @method Event               setEntryPrize()  Sets the current record's "entry_prize" value
  * @method Event               setIsPublic()    Sets the current record's "is_public" value
+ * @method Event               setIsOpened()    Sets the current record's "is_opened" value
  * @method Event               setTournaments() Sets the current record's "Tournaments" collection
  * 
  * @package    sfHfLan
@@ -38,7 +41,6 @@ abstract class BaseEvent extends sfDoctrineRecord
         $this->hasColumn('name', 'string', 255, array(
              'type' => 'string',
              'notnull' => true,
-             'unique' => true,
              'length' => 255,
              ));
         $this->hasColumn('starts_at', 'timestamp', null, array(
@@ -51,6 +53,11 @@ abstract class BaseEvent extends sfDoctrineRecord
              'type' => 'integer',
              ));
         $this->hasColumn('is_public', 'boolean', null, array(
+             'type' => 'boolean',
+             'notnull' => true,
+             'default' => 1,
+             ));
+        $this->hasColumn('is_opened', 'boolean', null, array(
              'type' => 'boolean',
              'notnull' => true,
              'default' => 1,

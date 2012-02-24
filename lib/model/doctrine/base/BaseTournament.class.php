@@ -11,25 +11,37 @@
  * @property integer $inscription_prize
  * @property integer $event_id
  * @property integer $game_id
+ * @property boolean $is_subtournament_enabled
+ * @property integer $subtournament_price
+ * @property string $subtournament_name
  * @property Event $Event
  * @property Game $Game
+ * @property Doctrine_Collection $Players
  * 
- * @method string     getName()              Returns the current record's "name" value
- * @method integer    getNumberOfTeams()     Returns the current record's "number_of_teams" value
- * @method integer    getPrizePool()         Returns the current record's "prize_pool" value
- * @method integer    getInscriptionPrize()  Returns the current record's "inscription_prize" value
- * @method integer    getEventId()           Returns the current record's "event_id" value
- * @method integer    getGameId()            Returns the current record's "game_id" value
- * @method Event      getEvent()             Returns the current record's "Event" value
- * @method Game       getGame()              Returns the current record's "Game" value
- * @method Tournament setName()              Sets the current record's "name" value
- * @method Tournament setNumberOfTeams()     Sets the current record's "number_of_teams" value
- * @method Tournament setPrizePool()         Sets the current record's "prize_pool" value
- * @method Tournament setInscriptionPrize()  Sets the current record's "inscription_prize" value
- * @method Tournament setEventId()           Sets the current record's "event_id" value
- * @method Tournament setGameId()            Sets the current record's "game_id" value
- * @method Tournament setEvent()             Sets the current record's "Event" value
- * @method Tournament setGame()              Sets the current record's "Game" value
+ * @method string              getName()                     Returns the current record's "name" value
+ * @method integer             getNumberOfTeams()            Returns the current record's "number_of_teams" value
+ * @method integer             getPrizePool()                Returns the current record's "prize_pool" value
+ * @method integer             getInscriptionPrize()         Returns the current record's "inscription_prize" value
+ * @method integer             getEventId()                  Returns the current record's "event_id" value
+ * @method integer             getGameId()                   Returns the current record's "game_id" value
+ * @method boolean             getIsSubtournamentEnabled()   Returns the current record's "is_subtournament_enabled" value
+ * @method integer             getSubtournamentPrice()       Returns the current record's "subtournament_price" value
+ * @method string              getSubtournamentName()        Returns the current record's "subtournament_name" value
+ * @method Event               getEvent()                    Returns the current record's "Event" value
+ * @method Game                getGame()                     Returns the current record's "Game" value
+ * @method Doctrine_Collection getPlayers()                  Returns the current record's "Players" collection
+ * @method Tournament          setName()                     Sets the current record's "name" value
+ * @method Tournament          setNumberOfTeams()            Sets the current record's "number_of_teams" value
+ * @method Tournament          setPrizePool()                Sets the current record's "prize_pool" value
+ * @method Tournament          setInscriptionPrize()         Sets the current record's "inscription_prize" value
+ * @method Tournament          setEventId()                  Sets the current record's "event_id" value
+ * @method Tournament          setGameId()                   Sets the current record's "game_id" value
+ * @method Tournament          setIsSubtournamentEnabled()   Sets the current record's "is_subtournament_enabled" value
+ * @method Tournament          setSubtournamentPrice()       Sets the current record's "subtournament_price" value
+ * @method Tournament          setSubtournamentName()        Sets the current record's "subtournament_name" value
+ * @method Tournament          setEvent()                    Sets the current record's "Event" value
+ * @method Tournament          setGame()                     Sets the current record's "Game" value
+ * @method Tournament          setPlayers()                  Sets the current record's "Players" collection
  * 
  * @package    sfHfLan
  * @subpackage model
@@ -44,7 +56,6 @@ abstract class BaseTournament extends sfDoctrineRecord
         $this->hasColumn('name', 'string', 255, array(
              'type' => 'string',
              'notnull' => true,
-             'unique' => true,
              'length' => 255,
              ));
         $this->hasColumn('number_of_teams', 'integer', null, array(
@@ -64,7 +75,18 @@ abstract class BaseTournament extends sfDoctrineRecord
              ));
         $this->hasColumn('game_id', 'integer', null, array(
              'type' => 'integer',
-             'notnull' => true,
+             'notnull' => false,
+             ));
+        $this->hasColumn('is_subtournament_enabled', 'boolean', null, array(
+             'type' => 'boolean',
+             'default' => false,
+             ));
+        $this->hasColumn('subtournament_price', 'integer', null, array(
+             'type' => 'integer',
+             ));
+        $this->hasColumn('subtournament_name', 'string', 255, array(
+             'type' => 'string',
+             'length' => 255,
              ));
     }
 
@@ -80,5 +102,9 @@ abstract class BaseTournament extends sfDoctrineRecord
              'local' => 'game_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
+
+        $this->hasMany('Player as Players', array(
+             'local' => 'id',
+             'foreign' => 'tournament_id'));
     }
 }

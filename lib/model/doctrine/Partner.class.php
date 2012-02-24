@@ -12,5 +12,8 @@
  */
 class Partner extends BasePartner
 {
-
+    public function getLogoPath()
+    {
+      return sfConfig::get('sf_web_dir').'/uploads/partners/'. $this->getLogo();
+    }
 }

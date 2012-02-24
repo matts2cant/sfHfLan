@@ -13,9 +13,31 @@ generator:
 
     config:
       actions: ~
-      fields:  ~
-      list:    ~
+      fields:
+        is_shown :
+          label: Publié ?
+      list:
+        title: Gestion des articles
+        display: [=title, content, created_at, is_shown]
+        batch_actions:
+          _delete:    ~
+          show: 
+            label: Publier
+          mask:
+            label: Masquer
+        object_actions:
+          _edit:      ~
+          _delete:    ~
+          show: 
+            label: Publier
+          mask:
+            label: Masquer
       filter:  ~
-      form:    ~
-      edit:    ~
-      new:     ~
+      form:
+        display:
+          Contenu: [title, content, url, image, is_shown, type]
+          
+      edit:
+        title: Edition d'un article
+      new:
+        title: Création d'un article

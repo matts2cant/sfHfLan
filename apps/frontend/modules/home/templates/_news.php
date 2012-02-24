@@ -23,12 +23,12 @@
         </div>
 
         <div class="tab_content" id="tab2" style="display: none; ">
-            CONTENT TAB 2
+            <?php include_partial("rules/list", array('games' => $games)); ?>
             <div class="clear"></div>
         </div>
 
         <div class="tab_content" id="tab3" style="display: none; ">
-            CONTENT TAB 3
+            Cette fonctionnalité est en cours de développement :)
             <div class="clear"></div>
         </div>
     </div>   		

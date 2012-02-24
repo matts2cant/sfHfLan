@@ -1,44 +1,98 @@
+<?php slot('title', 'hf.lan &raquo; Informations'); ?>
+
 <div class="left">
     <div class="content">
         <h1>INFORMATIONS</h1>
         <br/>
-        La prochaine HF-LAN se déroulera le week-end du <strong>22-23 Octobre 2011</strong>. Elle commencera le samedi vers 10h et finira le dimanche en fin d'après-midi 
-        à l'école ESIEE Paris dont vous trouverez les coordonnées et un plan dans la rubrique <a href="./acces.php">accès</a>.
-        Il s'agira d'une LAN BYOC ("Bring your own computer" ou "Amenez votre propre PC").<br/>
+        
+        <?php if($isUpComing): ?>
+        La prochaine HF-LAN se déroulera du 
+        <strong>
+            <?php
+                $start = strtotime($event->getStartsAt());
+                $finish = strtotime($event->getFinishesAt());
+                setlocale (LC_TIME, 'fr_FR'); 
+                if(strftime("%Y", $start) == strftime("%Y", $finish))
+                {
+                    if(strftime("%m", $start) == strftime("%m", $finish))
+                    {
+                        echo strftime("%d",  $start);
+                    }
+                    else
+                    {
+                        echo strftime("%d %B",  $start);
+                    }
+                }
+                else
+                {
+                    echo strftime("%d %B %Y",  $start);
+                }
+            ?>
+            au
+            <?php echo strftime("%d %B %Y",  $finish);?>
+        </strong>.
+        
+        <?php else:?>
+        <strong>La date de la prochaine HF-LAN n'est pas encore fixée.</strong>
         <br/>
-        Nous vous proposerons 3 tournois avec plus de <strong>1200€</strong> de prize-pool et se déroulant sur les <strong>2</strong> jours ! :<br/>
+        <?php endif; ?>
+        
+        
+        Elle se situe dans l'école ESIEE Paris dont vous trouverez les coordonnées et un plan dans la rubrique 
+        <a href="<?php echo url_for("access/index");?>">accès</a>.<br/>
+        Il s'agit d'une LAN BYOC ("Bring your own computer" ou "Amenez votre propre PC").<br/>
+        <br/>
+        
+        <?php if($isUpComing): ?>
+        Nous vous proposerons <?php echo $event->getTournaments()->count(); ?> tournois avec plus de 
+        <strong>
+            <?php
+                $sum = 0;
+                foreach($event->getTournaments() as $tournament)
+                {
+                    $sum += $tournament->getPrizePool();
+                }
+                echo $sum."€";
+            ?>
+        </strong> 
+        de prize-pool et se déroulant sur tout le weekend :<br/>
         <br/>
         <ul>
+            <?php foreach($event->getTournaments() as $tournament): ?>
+            <?php if($tournament->getGameId()):?>
             <li>
-                <strong>Starcraft 2</strong> (homologué par Blizzard)<br/>
+                <strong><?php echo $tournament->getName(); ?></strong><br/>
+              <?php if($tournament->getIsSubtournamentEnabled()): ?>
+              &#8627; <?php echo "Optionnel : ".$tournament->getSubtournamentName(); ?>
+              <?php endif;?>
                 <p style="padding-left:20px;">
-                    Places : 32 joueurs<br/>
-                    Prize-pool : 400€<br/>
-                    <a href="./reglements/sc2_rules.pdf"/>&raquo; Lire le réglement</a>
+                    <?php if($tournament->getGame()->getPlayersPerTeam() == 1):?>
+                        Places : <?php echo $tournament->getNumberOfTeams(); ?> joueurs<br/>
+                    <?php else:?>
+                        Places : <?php echo $tournament->getNumberOfTeams(); ?> équipes
+                        de <?php echo $tournament->getGame()->getPlayersPerTeam(); ?> joueurs<br/>
+                    <?php endif;?>
+                    
+                    Prize-pool : <?php echo $tournament->getPrizePool(); ?>€<br/>
+                    <a href="/uploads/games/rules/<?php echo $tournament->getGame()->getRules(); ?>"/>&raquo; Lire le réglement</a><br/>
                 </p><br/>
             </li>
+            <?php else:?>
             <li>
-                <strong>League of Legends</strong><br/>
+                <strong><?php echo $tournament->getName(); ?></strong><br/>
                 <p style="padding-left:20px;">
-                    Places : 8 teams de 5 joueurs (40 joueurs)<br/>
-                    Prize-pool : 500€<br/>
-                    <a href="./reglements/lol_rules.pdf"/>&raquo; Lire le réglement</a>
+                    Places : <?php echo $tournament->getNumberOfTeams(); ?> personnes<br/>
                 </p><br/>
             </li>
-            <li>
-                <strong>Super Smash Bros Melee</strong><br/>
-                <p style="padding-left:20px;">
-                    Places : 48 places<br/>
-                    Prize-pool : 400€<br/>
-                    <a href="./reglements/ssbm_rules.pdf"/>&raquo; Lire le réglement</a>
-                </p><br/>
-            </li>
+            <?php endif;?>
+            <?php endforeach; ?>
         </ul>
         <br/>
-        Début des tournois : 13h30-14h<br/>
+        Jouez également à tous les jeux que vous voulez !
         <br/>
-        Jouez également à tous les jeux que vous voulez !<br/>
-        <br/>
+        <?php else: ?>
+        
+        <?php endif; ?>
         <h2>
             Ce qui vous plaira
         </h2>
@@ -87,17 +141,39 @@
             <li>Des boissons gratuites tout le week-end !</li>
         </ul>
         <br/>
+        <?php if($isUpComing): ?>
         Les tarifs sont :
         <ul>
-            <li>Pass entrée simple : 6€(entrée)</li>
-            <li>Pass tournoi SC2 ou LOL : 6€(entrée) + 14€(prize-pool)</li>
-            <li>Pass tournoi SSBM : 6€(entrée) + 10€(prize-pool)</li>
+            <?php foreach($event->getTournaments() as $tournament): ?>
+            <li>Pass <?php echo $tournament->getName(); ?> :
+                <?php echo $event->getEntryPrize(); ?>€(entrée)
+                <?php if($tournament->getInscriptionPrize() > 0): ?> 
+                + <?php echo $tournament->getInscriptionPrize(); ?>€(prize-pool)
+                <?php endif;?>
+                <br/>
+                <?php if($tournament->getIsSubtournamentEnabled()): ?>
+                <?php
+                  $stName = "Optionnel : ".$tournament->getSubtournamentName();
+                  if($tournament->getSubtournamentPrice() > 0)
+                  {
+                    $stName .= " (+".$tournament->getSubtournamentPrice()."€)";
+                  }
+                  else
+                  {
+                    $stName .= " (Gratuit)";
+                  }
+                ?>
+                &#8627; <?php echo $stName; ?>
+                <?php endif;?>
+            </li>
+            <?php endforeach; ?>
         </ul>
         <br/>
         Ces prix sont sujets à modifications d'ici l'ouverture des inscriptions.<br/>
         <br/>
-        Les inscriptions seront closes le mercredi 19 Octobre au soir afin de valider la liste des
-        participants.<br/>
+        <?php endif; ?>
+        Les inscriptions seront closes deux jours avant le debut de l'évènement,
+        afin de valider la liste des participants.<br/>
         <br/>
 
         <h2>
@@ -106,7 +182,7 @@
         Trois méthodes de paiement sont disponibles :
         <ul>
             <li>En ligne par PayPal</li>
-            <li>Au BDE Esiee Engineering (voir section <a href="./acces.php">accès</a>)</li>
+            <li>Au BDE Esiee Engineering (voir section <a href="<?php echo url_for("access/index");?>">accès</a>)</li>
             <li>Sur place le jour de l'évènement (Par CB ou espèces)</li>
         </ul>
         <br/>
@@ -126,5 +202,5 @@
 </div>
 <div class="right">
     <?php include_partial("global/infobox"); ?>
-    <?php include_partial("global/countbox"); ?>
+    <?php include_component("boxes","countbox"); ?>
 </div>

@@ -16,4 +16,15 @@ class EventTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Event');
     }
+    
+    public function findUpComingEvent()
+    {
+        $now = date('Y-m-d H:i:s', time());
+        $query = $this->createQuery('ev')->
+                where("ev.starts_at > ?", $now)->
+                orderBy('starts_at ASC')->
+                limit(1);
+        
+        return $query->fetchOne();
+    }
 }

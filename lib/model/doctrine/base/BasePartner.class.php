@@ -60,6 +60,10 @@ abstract class BasePartner extends sfDoctrineRecord
     {
         parent::setUp();
         $timestampable0 = new Doctrine_Template_Timestampable();
+        $thumbnailable0 = new Thumbnailable(array(
+             'default' => 'logo',
+             'path_method' => 'get%sPath',
+             ));
         $sluggable0 = new Doctrine_Template_Sluggable(array(
              'unique' => true,
              'fields' => 
@@ -69,6 +73,7 @@ abstract class BasePartner extends sfDoctrineRecord
              'canUpdate' => true,
              ));
         $this->actAs($timestampable0);
+        $this->actAs($thumbnailable0);
         $this->actAs($sluggable0);
     }
 }

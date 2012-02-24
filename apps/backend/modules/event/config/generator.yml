@@ -13,9 +13,16 @@ generator:
 
     config:
       actions: ~
-      fields:  ~
-      list:    ~
+      fields:
+      list:
+        title: Gestion des évènements
+        display: [=name, starts_at, entry_prize]
+        fields:
+          starts_at:
+            label: Date
       filter:  ~
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:
+        title: Edition d'un évènement
+      new:
+        title: Création d'un évènement

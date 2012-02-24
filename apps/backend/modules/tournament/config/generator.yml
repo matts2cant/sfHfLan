@@ -14,8 +14,12 @@ generator:
     config:
       actions: ~
       fields:  ~
-      list:    ~
+      list:
+        title: Gestion des tournois
+        display: [=name, number_of_teams, inscription_prize, prize_pool]
       filter:  ~
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:
+        title: Edition d'un tournoi
+      new:
+        title: Création d'un tournoi

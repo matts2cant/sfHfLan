@@ -10,7 +10,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
-        <title>hf.lan</title>
+        <title><?php include_slot('title', 'hf.lan'); ?></title>
         <?php include_http_metas() ?>
         <?php include_metas() ?>
         <link rel="shortcut icon" href="/favicon.ico" />
@@ -22,18 +22,16 @@
         <div id="page">
             <div id="header">
                 <div id="headermenu">
-                    <div id="loginbox">
-                        <a href="#">matts2cant</a> 
-                        <span class="separator">|</span>
-                        2 messages
-                        <span class="separator">|</span>
-                        se déconnecter
+                    <div id="loginbox" >
+                        &nbsp;
                     </div>
                     <div id="searchbox">
+                        <form method="post" name="search_form" action="<?php echo url_for("blog/search"); ?>">
                         <ul>
-                            <li><input class="input" name="txt" value="Rechercher sur le site" onfocus="if(this.value=='Rechercher sur le site') {this.value='';}" onblur="if(this.value=='') {this.value='Rechercher sur le site';}" type="text"></input></li>
-                            <li><a href="#">Rechercher</a></li>
+                            <li><input class="input" name="search" value="Rechercher sur le site" onfocus="if(this.value=='Rechercher sur le site') {this.value='';}" onblur="if(this.value=='') {this.value='Rechercher sur le site';}" type="text"></input></li>
+                            <li><a href="#" onClick="document['search_form'].submit()">Rechercher</a></li>
                         </ul>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -42,14 +40,23 @@
                     <li><a href="<?php echo url_for("home/index"); ?>">Accueil</a></li>
                     <li><a href="<?php echo url_for("infos/index"); ?>">Informations</a></li>
                     <li><a href="<?php echo url_for("blog/list"); ?>">Blog</a></li>
-                    <li><a href="#">Partenaires</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Accès</a></li>
-                    <li><a href="#">Archives</a></li>
-                    <li class="last"><a href="#">Inscriptions</a></li>
+                    <li><a href="<?php echo url_for("archives/index"); ?>">Archives</a></li>
+                    <li><a href="<?php echo url_for("partners/index"); ?>">Partenaires</a></li>
+                    <li><a href="<?php echo url_for("access/index"); ?>">Accès</a></li>
+                    <li><a href="<?php echo url_for("contact/index"); ?>">Contact</a></li>
+                    <li class="last"><a href="<?php echo url_for("registration/index"); ?>">Inscriptions</a></li>
                 </ul>
                 <div style="clear: both"></div>
             </div>
+          
+            <?php if ($sf_user->hasFlash('notice')): ?>
+              <div class="flash_notice"><?php echo $sf_user->getFlash('notice') ?></div>
+            <?php endif ?>
+
+            <?php if ($sf_user->hasFlash('error')): ?>
+              <div class="flash_error"><?php echo $sf_user->getFlash('error') ?></div>
+            <?php endif ?>
+              
             <?php echo $sf_content;?>
             <div id="footer">
                 <table>

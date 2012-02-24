@@ -2,57 +2,28 @@
 
 <?php use_javascript('contentslider.js') ?>
 
+<?php use_helper('Text') ?>
+
 <div id="slider">
     <div id="banner">
         <div id="slider1" class="sliderwrapper">
+            <?php foreach($sliderArticles as $actu):?>
             <div class="contentdiv">
-                <a href="#"><img src="/images/banner1.jpg" alt=""></a>
+                <a href="#"><img src="<?php echo $actu->getThumbnail(); ?>" alt=""></a>
                 <div class="banner_des">
-                    <h4>Finale Super Smash Bros.</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                        ut labore et dolore magna aliqua.
-                    </p>
-                </div>
-            </div> 
-            <div class="contentdiv">
-                <a href="#"><img src="/images/banner2.jpg" alt=""></a>
-                <div class="banner_des">
-                    <h4>Installation des Equipes</h4>
-                    <p>
-                        Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia
-                        non numquam eius modi tempora incidunt.
-                    </p>
-                </div>
-            </div> 
-            <div class="contentdiv">
-                <a href="#"><img src="/images/banner3.jpg" alt=""></a>
-                <div class="banner_des">
-                    <h4>Tournois League of Legends</h4>
-                    <p>
-                        Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et
-                        voluptates repudiandae sint et molestiae non recusandae.
-                    </p>
-                </div>
-            </div> 
-            <div class="contentdiv">
-                <a href="#"><img src="/images/banner4.jpg" alt=""></a>
-                <div class="banner_des">
-                    <h4>Tournois Melee</h4>
-                    <p>
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
-                        aperiam.
-                    </p>
+                    <a class="more" href="<?php echo url_for('blog_view', $actu); ?>">&raquo;</a>
+                    <h4><?php echo $actu->getTitle(); ?></h4>
+                    <p><?php echo truncate_text(strip_tags($actu->getContent(ESC_RAW)), 140, "..."); ?></p>
                 </div>
             </div>
+            <?php endforeach; ?>
         </div> 
 
         <div id="paginate-slider1" class="pagination">
-            <a href="#prev" class="prev">Previous</a> 
-            <a href="#1" class="toc" rel="1">1</a> 
-            <a href="#2" class="toc" rel="2">2</a> 
-            <a href="#3" class="toc" rel="3">3</a> 
-            <a href="#4" class="toc selected" rel="4">4</a> 
+            <a href="#prev" class="prev">Previous</a>
+            <?php for($i = 1; $i <= $sliderArticles.count(); $i++): ?>
+                <a href="#<?php echo $i; ?>" class="toc<?php echo ($i == $actus.count()) ? 'selected' : ''; ?>" rel="<?php echo $i; ?>"><?php echo $i; ?></a> 
+            <?php endfor; ?>
             <a href="#next" class="next">Next</a>
         </div> 
         <script>

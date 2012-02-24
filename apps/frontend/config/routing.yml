@@ -13,18 +13,99 @@ blog_list:
   requirements:
     sf_method: [get]
     
-# blog rules
+blog_search:
+  url:   search
+  param:   { module: blog, action: search }
+  requirements:
+    sf_method: [post]
+    
 blog_view:
   url:   blog/:slug
   class:   sfDoctrineRoute
   options: { model: Article,   type: object }
   param:   { module: blog, action: show }
   requirements:
-    id: \d+
     sf_method: [get]
 
+# info rules
 infos_index:
-  url:   infos
+  url:   informations
   param:   { module: infos, action: index }
   requirements:
     sf_method: [get]
+    
+# partners rules
+partners_index:
+  url:   partenaires
+  param:   { module: partners, action: index }
+  requirements:
+    sf_method: [get]
+    
+# access rules
+access_index:
+  url:   acces
+  param:   { module: access, action: index }
+  requirements:
+    sf_method: [get]
+    
+# contact rules
+contact_index:
+  url:   contact
+  param:   { module: contact, action: index }
+  requirements:
+    sf_method: [get]
+    
+# archives rules
+archives_index:
+  url:   archives
+  param:   { module: archives, action: index }
+  requirements:
+    sf_method: [get]
+    
+# registration rules
+registration_index:
+  url:   inscriptions
+  param:   { module: registration, action: index }
+  requirements:
+    sf_method: [get]
+
+registration_step1:
+  url:   inscriptions/etape1
+  param:   { module: registration, action: step1 }
+  requirements:
+    sf_method: [get, post]
+    
+registration_step2:
+  url:   inscriptions/etape2
+  param:   { module: registration, action: step2 }
+  requirements:
+    sf_method: [get, post]
+
+registration_closed:
+  url:   inscriptions/indisponible
+  param:   { module: registration, action: closed }
+  requirements:
+    sf_method: [get]
+
+registration_confirm:
+  url:   inscriptions/confirmation
+  param:   { module: registration, action: confirm }
+  requirements:
+    sf_method: [get]
+
+registration_edit_player:
+  url:   inscriptions/edit/:token
+  class:   sfDoctrineRoute
+  options: { model: Player,   type: object }
+  param:   { module: registration, action: editPlayer }
+  requirements:
+    sf_method: [get, post]
+
+registration_cancel_player:
+  url:   inscriptions/cancel/:token
+  class:   sfDoctrineRoute
+  options: { model: Player,   type: object }
+  param:   { module: registration, action: cancelPlayer }
+  requirements:
+    sf_method: [get]
+  

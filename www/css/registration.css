@@ -1,0 +1,60 @@
+/* 
+    Document   : registration
+    Created on : 19 févr. 2012, 22:16:03
+    Author     : matt
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+table 
+{
+  width: 100%;
+}
+
+table
+{
+  margin-bottom: 20px;
+}
+
+table table
+{
+  margin-bottom: 10px;
+  background-color: #F5F5F5;
+  border: solid 1px #DDD;
+}
+
+.progress
+{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom:20px;
+    width: 100%;
+    padding: 10px 0 10px 0;
+    border-top: solid 1px #D5D5D5;
+    border-bottom: solid 1px #D5D5D5;
+}
+
+.progress,
+.progress .step
+{
+    font-size: 20px;
+}
+
+.progress .step
+{
+    color: #77a6b5;
+}
+
+.progress .current
+{
+    color: #245666;
+    font-weight: bold;
+}
+
+
+

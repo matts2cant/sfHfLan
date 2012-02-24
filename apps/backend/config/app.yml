@@ -2,4 +2,31 @@
 # http://www.symfony-project.org/reference/1_4/en/11-App
 
 # default values
-#all:
+  
+all:
+  sf_admin_dash:
+    categories:
+      Contenu:
+        items:
+          Articles:
+            url:          article
+          Categories:
+            url:          category
+          Partner:
+            url:          partner
+      Lans:
+        items:
+          Évènements:
+            url:          event
+          Tournois:
+            url:          tournament
+          Jeux:
+            url:          game
+      Utilisateurs:
+        items:
+          Utilisateurs:
+            url:          guard/users
+          Groupes:
+            url:          guard/groups
+          Permissions:
+            url:          guard/permissions

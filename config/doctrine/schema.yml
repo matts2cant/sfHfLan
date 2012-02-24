@@ -1,30 +1,26 @@
 Article:
   actAs:
     Timestampable: ~
+    Thumbnailable:
+      thumb_dir:   '%s/.thumbnails'
+      path_method: get%sPath
+      fields:
+        image:
+          formats:
+            homepage: 710x319
+    Searchable:
+      fields: [title, content]
     Sluggable:
       unique: true
       fields: [title]
       canUpdate: true
   columns:
-    category_id:  { type: integer, notnull: true }
     image:        { type: string(255) }
     url:          { type: string(255) }
     title:        { type: string(255) }
     content:      { type: string(4000), notnull: true }
     is_shown:     { type: boolean, notnull: true, default: 0 }
-    email:        { type: string(255), notnull: true }
-  relations:
-    Category: { onDelete: CASCADE, local: category_id, foreign: id, foreignAlias: Articles }
-    
-Category:
-  actAs:
-    Timestampable: ~
-    Sluggable:
-      unique: true
-      fields: [name]
-      canUpdate: true
-  columns:
-    name: { type: string(255), notnull: true, unique: true }
+    type:         { type: enum, values: [blog, slider], default: blog }
     
 Event:
   actAs:
@@ -34,23 +30,27 @@ Event:
       fields: [name]
       canUpdate: true
   columns:
-    name: { type: string(255), notnull: true, unique: true }
-    starts_at: { type: timestamp }
-    finishes_at: { type: timestamp }
-    entry_prize: { type: integer }
+    name:         { type: string(255), notnull: true}
+    starts_at:    { type: timestamp }
+    finishes_at:  { type: timestamp }
+    entry_prize:  { type: integer }
     is_public:    { type: boolean, notnull: true, default: 1 }
+    is_opened:    { type: boolean, notnull: true, default: 1 }
     
 Tournament:
   columns:
-    name: { type: string(255), notnull: true, unique: true }
-    number_of_teams: { type: integer, notnull: true }
-    prize_pool: { type: integer, notnull: true }
-    inscription_prize: { type: integer }
-    event_id:  { type: integer, notnull: true }
-    game_id: { type: integer, notnull: true }
+    name:                 { type: string(255), notnull: true}
+    number_of_teams:      { type: integer, notnull: true }
+    prize_pool:           { type: integer, notnull: true }
+    inscription_prize:    { type: integer }
+    event_id:             { type: integer, notnull: true }
+    game_id:              { type: integer, notnull: false }
+    is_subtournament_enabled: { type: boolean, default: false }
+    subtournament_price:  { type: integer }
+    subtournament_name:   { type: string(255) }
   relations:
-    Event: { onDelete: CASCADE, local: event_id, foreign: id, foreignAlias: Tournaments }
-    Game: { onDelete: CASCADE, local: game_id, foreign: id, foreignAlias: Tournaments }
+    Event:    { onDelete: CASCADE, local: event_id, foreign: id, foreignAlias: Tournaments }
+    Game:     { onDelete: CASCADE, local: game_id, foreign: id, foreignAlias: Tournaments }
     
 Game:
   actAs:
@@ -59,21 +59,45 @@ Game:
       fields: [name]
       canUpdate: true
   columns:
-    name: { type: string(255), notnull: true, unique: true }
-    rules_file: { type: string(255), notnull: true, unique: true }
-    players_per_team: { type: string(255), notnull: true, unique: true }
-    icon: { type: string(255), notnull: true, unique: true }
+    name:              { type: string(255), notnull: true}
+    rules:             { type: string(255)}
+    players_per_team: { type: integer, notnull: true}
+    requires_bnet_id: { type: boolean, notnull: true}
+    icon:              { type: string(255)}
+    
+Player:
+  actAs:
+    Timestampable: ~
+  columns:
+    firstname:    { type: string(255), notnull: true }
+    lastname:     { type: string(255), notnull: true }
+    nickname:     { type: string(255) }
+    email:        { type: string(255), notnull: true }
+    team:         { type: string(255) }
+    team_tag:     { type: string(16) }
+    pc_type:      { type: enum, values: [none, laptop, desktop], notnull: true }
+    wants_cable:  { type: boolean, notnull: true }
+    token:        { type: string(255), unique: true, notnull: true }
+    bnet_email:   { type: string(255) }
+    bnet_ccode:   { type: string(255) }
+    tournament_id: { type: integer, notnull: true }
+    subtournament: { type: boolean, default: false }
+  relations:
+    Tournament:    { onDelete: CASCADE, local: tournament_id, foreign: id, foreignAlias: Players }
     
 Partner:
   actAs:
     Timestampable: ~
+    Thumbnailable:
+      default: logo
+      path_method: get%sPath
     Sluggable:
       unique: true
       fields: [name]
       canUpdate: true
   columns:
-    name: { type: string(255), notnull: true, unique: true }
-    logo: { type: string(255), notnull: true }
-    description: { type: text }
-    sort_index: { type: integer }
-    url: { type: string(255), notnull: true }
+    name:         { type: string(255), notnull: true, unique: true }
+    logo:         { type: string(255), notnull: true }
+    description:  { type: text }
+    sort_index:   { type: integer }
+    url:          { type: string(255), notnull: true }

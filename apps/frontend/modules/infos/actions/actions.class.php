@@ -17,6 +17,9 @@ class infosActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
+    $event = EventTable::getInstance()->findUpComingEvent();
+    $this->event = $event;
     
+    $this->isUpComing = ($event);
   }
 }

@@ -18,5 +18,8 @@ class homeActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
     $this->blogArticles = ArticleTable::getInstance()->getFourLastBlogArticles();
+    $this->sliderArticles = ArticleTable::getInstance()->getFourLastSliderArticles();
+    
+    $this->games = GameTable::getInstance()->findAll();
   }
 }

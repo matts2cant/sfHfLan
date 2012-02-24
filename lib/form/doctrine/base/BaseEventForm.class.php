@@ -21,6 +21,7 @@ abstract class BaseEventForm extends BaseFormDoctrine
       'finishes_at' => new sfWidgetFormDateTime(),
       'entry_prize' => new sfWidgetFormInputText(),
       'is_public'   => new sfWidgetFormInputCheckbox(),
+      'is_opened'   => new sfWidgetFormInputCheckbox(),
       'created_at'  => new sfWidgetFormDateTime(),
       'updated_at'  => new sfWidgetFormDateTime(),
       'slug'        => new sfWidgetFormInputText(),
@@ -33,16 +34,14 @@ abstract class BaseEventForm extends BaseFormDoctrine
       'finishes_at' => new sfValidatorDateTime(array('required' => false)),
       'entry_prize' => new sfValidatorInteger(array('required' => false)),
       'is_public'   => new sfValidatorBoolean(array('required' => false)),
+      'is_opened'   => new sfValidatorBoolean(array('required' => false)),
       'created_at'  => new sfValidatorDateTime(),
       'updated_at'  => new sfValidatorDateTime(),
       'slug'        => new sfValidatorString(array('max_length' => 255, 'required' => false)),
     ));
 
     $this->validatorSchema->setPostValidator(
-      new sfValidatorAnd(array(
-        new sfValidatorDoctrineUnique(array('model' => 'Event', 'column' => array('name'))),
-        new sfValidatorDoctrineUnique(array('model' => 'Event', 'column' => array('slug'))),
-      ))
+      new sfValidatorDoctrineUnique(array('model' => 'Event', 'column' => array('slug')))
     );
 
     $this->widgetSchema->setNameFormat('event[%s]');

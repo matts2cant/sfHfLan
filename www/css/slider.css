@@ -23,7 +23,7 @@
 
 .banner_des {
 	width:520px;
-	height:66px;
+	height:67px;
 	padding-right:167px;
 	color:#fff;
 	padding-left:20px;
@@ -36,11 +36,22 @@
 .banner_des h4 {
 	font-weight: 900;
 	padding-bottom:2px;
-	color:#fff!important;
+	color:#fff !important;
 }
 .banner_des p {
 	padding-right:80px;
 }
+
+.banner_des a {
+    display: block;
+    float: right;
+    font-size: 45px;
+    color: #FFF;
+    font-weight: bold;
+    font-family: arial;
+    margin-right: 10px;
+}
+
 #slider2 {
 	width:710px;
 	position:relative;

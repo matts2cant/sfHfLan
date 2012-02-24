@@ -14,8 +14,12 @@ generator:
     config:
       actions: ~
       fields:  ~
-      list:    ~
+      list:
+        title: Gestion des partenaires
+        display: [sort_index, =name, url]
       filter:  ~
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:
+        title: Edition d'un partenaire
+      new:
+        title: Création d'un partenaire

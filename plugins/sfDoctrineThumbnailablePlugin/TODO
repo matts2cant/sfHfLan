@@ -1,0 +1,10 @@
+* write unit tests
+* Good files handling on updates and deletes
+* A task to generate all thumbnails at once (options = model, fields, formats)
+* A ``keep_original`` settings, if you ever want to delete the original picture
+* An ``allow_empty`` parameter
+  after thumbnail creations (in case it's huge)
+* Allow a different thumbnail object injection
+* A settings compatibility chart (I guess that's something that points an
+  overconfigurable plugin :s)
+* Remove dependency to sfConfig for sf_upload_dir

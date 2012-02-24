@@ -14,8 +14,12 @@ generator:
     config:
       actions: ~
       fields:  ~
-      list:    ~
+      list:
+        title: Gestion des jeux
+        display: [icon, =name, players_per_team]
       filter:  ~
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:
+        title: Edition d'un jeu
+      new:
+        title: Création d'un jeu

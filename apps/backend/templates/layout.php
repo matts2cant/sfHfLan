@@ -2,6 +2,7 @@
 
 <?php use_stylesheet('backend.css', 'first') ?>
 <?php use_stylesheet('fonts.css') ?>
+<?php use_javascript('tiny_mce/tiny_mce.js') ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
@@ -18,17 +19,41 @@
             <div id="header">
             </div>
             <div id="menu">
-                <?php echo link_to('Articles', 'article') ?> 
-                <?php echo link_to('Catégories', 'category') ?> 
-                <?php echo link_to('Évènements', 'event') ?> 
-                <?php echo link_to('Tournois', 'tournament') ?> 
-                <?php echo link_to('Jeux', 'game') ?>
-                <?php echo link_to('Partenaires', 'partner') ?>
+                <ul>
+                    <li><img src="/images/icons/page_white_edit.png"/>
+                        Contenu
+                        <ul>
+                            <li>&raquo; <?php echo link_to('Articles', 'article') ?> </li>
+                            <li>&raquo; <?php echo link_to('Partenaires', 'partner') ?> </li>
+                        </ul>
+                    </li>
+                    <li><img src="/images/icons/joystick.png"/>
+                        Lans
+                        <ul>
+                            <li>&raquo; <?php echo link_to('Évènements', 'event') ?> </li>
+                            <li>&raquo; <?php echo link_to('Tournois', 'tournament') ?> </li>
+                            <li>&raquo; <?php echo link_to('Jeux', 'game') ?> </li>
+                            <li>&raquo; <?php echo link_to('Joueurs', 'player') ?> </li>
+                        </ul>
+                    </li>
+                    <li><img src="/images/icons/user.png"/>
+                        Utilisateurs
+                        <ul>
+                            <li>&raquo; <?php echo link_to('Utilisateurs', 'guard/users') ?> </li>
+                            <li>&raquo; <?php echo link_to('Groupes', 'guard/groups') ?> </li>
+                            <li>&raquo; <?php echo link_to('Permissions', 'guard/permissions') ?> </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
             <div class="content">
+                <div class="right">
+                    <?php echo link_to('Se déconnecter', 'sf_guard_signout') ?>
+                </div>
                 <?php echo $sf_content;?>
                 <div class="clear"></div>
             </div>
+            <div class="clear"></div>
         </div>
     </body>
 </html>

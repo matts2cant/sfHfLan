@@ -1,0 +1,18 @@
+Game:
+  sc2:
+    name: Starcraft 2
+    rules: ~
+    players_per_team: 1
+    icon: ~
+    
+  lol:
+    name: League of Legends
+    rules: ~
+    players_per_team: 5
+    icon: ~
+    
+  ssbm:
+    name: Super Smash Bros Melee (simple)
+    rules: ~
+    players_per_team: 1
+    icon: ~

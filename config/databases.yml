@@ -8,6 +8,8 @@ dev:
       dsn:      mysql:host=localhost;dbname=sfHfLan
       username: root
       password: 
+      attributes:
+        use_native_enum: true
         
 prod:
   doctrine:
@@ -16,3 +18,5 @@ prod:
       dsn:      mysql:host=mysql51-53.perso;dbname=mattscantdb
       username: mattscantdb
       password: E4RT6YGF
+      attributes:
+        use_native_enum: true

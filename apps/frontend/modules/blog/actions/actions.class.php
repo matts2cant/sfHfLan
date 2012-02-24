@@ -19,10 +19,10 @@ class blogActions extends sfActions
   {
     $this->pager = new sfDoctrinePager(
         'Article',
-        10 //a corriger
+        sfConfig::get('app_max_blog_on_page')
     );
     
-    $this->pager->setQuery(ArticleTable::getInstance()->getBlogsQuery());
+    $this->pager->setQuery(ArticleTable::getInstance()->getPublishedBlogsQuery());
     $this->pager->setPage($request->getParameter('page', 1));
     $this->pager->init();
   }
@@ -30,5 +30,19 @@ class blogActions extends sfActions
   public function executeShow(sfWebRequest $request)
   {
     $this->article = $this->getRoute()->getObject();
+  }
+  
+  public function executeSearch(sfWebRequest $request)
+  {
+    $text = $request->getParameter('search');
+    
+    $this->pager = new sfDoctrinePager(
+        'Article',
+        sfConfig::get('app_max_blog_on_page')
+    );
+    
+    $this->pager->setQuery(ArticleTable::getInstance()->getPublishedQueryWithSearch($text));
+    $this->pager->setPage($request->getParameter('page', 1));
+    $this->pager->init();
   }
 }

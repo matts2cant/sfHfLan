@@ -16,7 +16,7 @@
     <br/>
     <p>
         Nous vous invitons à consulter la
-        rubrique <a href="#">informations</a> pour tout savoir
+        rubrique <a href="<?php echo url_for("infos/index"); ?>">informations</a> pour tout savoir
         sur cet évènement et pour connaitre les
         dates de la prochaine LAN.
     </p>

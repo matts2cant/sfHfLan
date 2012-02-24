@@ -69,7 +69,8 @@
 }
 
 #page .left .tab_content {
-    width:708px;
+    width:668px;
+    padding: 20px;
     background-color:#f7f7f7;
     border:solid 1px #d5d5d5;
     padding-bottom:16px;
@@ -79,15 +80,15 @@
 #page .left .news
 {
     clear: both;
-    margin: 16px 16px 0px 16px;
+    margin: 16px 0px 0px 0px;
 }
 
-#page .left .news h4
+#page .left h2
 {
     font-size: 12pt;
 }
 
-#page .left .news h4:before
+#page .left h2:before
 {
     content: url('../images/bullet.png');
     margin-right: 5px;
@@ -99,7 +100,7 @@
     float: right;
 }
 
-#page .left .news hr
+#page .left hr
 {
     border: none;
     clear: both;
@@ -136,6 +137,12 @@
     float: left;
 }
 
+#page .left .content .news img
+{
+    float: right;
+    margin-left: 10px;
+}
+
 #page .left .content .news .follow
 {
     float: right;
@@ -158,4 +165,9 @@
 {
     color: #999999;
     margin-left: 32px;
+}
+
+#page .left .tab_content ul
+{
+    margin-left: 20px;
 }

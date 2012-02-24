@@ -1,0 +1,14 @@
+Partner:
+  club_pc:
+    name:         Club PC
+    logo:         609a6c8d4d981f0d2babdfed855567e40ee5e5e6.png
+    url:          www.esiee.fr/Vie-etudiante/clubs_associations.php
+    description:  Club d'informatique d'ESIEE paris
+    sort_index:   1
+    
+  fonzy:
+    name:         Fonzy 2.0
+    logo:         55fb9ed14e058087a41117fc3c9dcdd837e43c5d.png
+    url:          soirees.esiee.fr
+    description:  Club organisateur des soirées ESIEE paris
+    sort_index:   2
