@@ -1,5 +1,7 @@
 
+/config/databases.yml
 /cache
 /nbproject
 /log
 /.idea
+/config/databases.yml

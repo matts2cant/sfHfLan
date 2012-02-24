@@ -1,4 +1,5 @@
 <?php use_stylesheet('sidebox.css'); ?>
+<?php use_stylesheet('countbox.css'); ?>
 <?php use_javascript('jquery.countdown.js'); ?>
 
 <div id="countbox" class="sidebox">

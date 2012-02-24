@@ -5,9 +5,9 @@ dev:
   doctrine:
     class: sfDoctrineDatabase
     param:
-      dsn:      mysql:host=localhost;dbname=sfHfLan
-      username: root
-      password: 
+      dsn:      mysql:host=[[host]];dbname=[[db_name]]
+      username: [[user]]
+      password: [[pass]]
       attributes:
         use_native_enum: true
         
@@ -15,8 +15,8 @@ prod:
   doctrine:
     class: sfDoctrineDatabase
     param:
-      dsn:      mysql:host=mysql51-53.perso;dbname=mattscantdb
-      username: mattscantdb
-      password: E4RT6YGF
+      dsn:      mysql:host=[[test_host]];dbname=[[test_db_name]]
+      username: [[test_user]]
+      password: [[test_pass]]
       attributes:
         use_native_enum: true
