@@ -29,7 +29,7 @@ class playerActions extends autoPlayerActions
       {
         $emails[] = $player->getEmail();
       }
-      $this->emails = implode(", ", $emails);
+      $this->emails = implode(",", $emails);
     }
     else
     {
@@ -41,12 +41,15 @@ class playerActions extends autoPlayerActions
   protected function getPlayersFromFilter()
   {
     $holder = $this->getUser()->getAttributeHolder()->getAll('admin_module');
-    $parameters = $holder['player.filters'];
 
     $query = PlayerTable::getInstance()->createQuery();
-    $form = new PlayerNoCSRFFormFilter($parameters);
-    $form->setQuery($query);
-    if ($parameters) {
+
+    if (isset($holder['player.filters']))
+    {
+      $parameters = $holder['player.filters'];
+      $form = new PlayerNoCSRFFormFilter($parameters);
+      $form->setQuery($query);
+
       $form->bind($parameters);
       if ($form->isValid()) {
         $query = $form->getQuery(); // apply filters to the query
