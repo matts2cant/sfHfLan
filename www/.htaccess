@@ -20,7 +20,7 @@ Options +FollowSymLinks +ExecCGI
   # no, so we redirect to our front web controller
   # 1) /admin => backend controller
   RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{HTTP_HOST} ^hfadmin\..*
+  RewriteCond %{HTTP_HOST} ^admin\..*
   RewriteRule ^(.*)$ backend.php [QSA,L]
   
   # 2) other => frontend controller
