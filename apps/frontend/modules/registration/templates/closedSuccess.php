@@ -7,7 +7,7 @@
     <h2>Les inscriptions sont actuellement fermées.</h2>
     Aucun tournoi n'est ouvert pour le moment.<br/>
     Les tournois ouvrent généralement aux alentours d'un mois avant le début d'une LAN.<br/>
-    En cas de questions, n'hésitez pas à nous poser vos questions à l'adresse <a href="mailto:infos@hf-lan.fr">infos@hf-lan.fr</a><br/>
+    En cas de questions, n'hésitez pas à nous contacter à l'adresse <a href="mailto:infos@hf-lan.fr">infos@hf-lan.fr</a><br/>
     <br/>
   </div>
 </div>
