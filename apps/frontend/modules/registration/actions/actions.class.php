@@ -47,8 +47,6 @@ class registrationActions extends sfActions
         $this->getUser()->setFlash('error', "Erreurs dans le formulaire.");
       }
     }
-
-
   }
   
   public function executeStep2(sfWebRequest $request)
