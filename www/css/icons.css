@@ -1,0 +1,34 @@
+#sf_admin_container ul li.sf_admin_action_booking a
+{
+    background: url("../images/icons/book_open.png") no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_new a
+{
+    background: url("../images/icons/add.png") no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_delete a
+{
+    background: url("../images/icons/delete.png") no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_edit a
+{
+    background: url("../images/icons/pencil.png") no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_mailinglist a
+{
+    background: url("../images/icons/mail.png") no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_exportcsv a
+{
+    background: url("../images/icons/page_white_excel.png") no-repeat 0 0;
+}
+
+#sf_admin_container ul li.sf_admin_action_print a
+{
+    background: url("../images/icons/printer.png") no-repeat 0 0;
+}
