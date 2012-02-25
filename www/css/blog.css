@@ -77,30 +77,25 @@
     color: #595959;
 }
 
-#page .left .news
+.news
 {
     clear: both;
     margin: 16px 0px 0px 0px;
 }
 
-#page .left h2
-{
-    font-size: 12pt;
-}
-
-#page .left h2:before
+.news h2:before
 {
     content: url('../images/bullet.png');
     margin-right: 5px;
 }
 
-#page .left .news .more
+.news .more
 {
     display: block;
     float: right;
 }
 
-#page .left hr
+.news hr
 {
     border: none;
     clear: both;
@@ -113,37 +108,37 @@
     top: 10px;
 }
 
-#page .left .content .news h2
+.news h3
 {
     font-weight: bold;
-    font-size: 25px;
+    font-size: 20px;
 }
 
-#page .left .content .news h2:before
+.news h3:before
 {
     content: url('../images/bullet_big.png');
     margin-right: 5px;
 }
 
-#page .left .content .news .back a,
-#page .left .content .news .follow a
+.news .back a,
+.news .follow a
 {
     font-size: 20px;
     color: #595959;
 }
 
-#page .left .content .news .back
+.news .back
 {
     float: left;
 }
 
-#page .left .content .news img
+.news img
 {
     float: right;
     margin-left: 10px;
 }
 
-#page .left .content .news .follow
+.news .follow
 {
     float: right;
 }
