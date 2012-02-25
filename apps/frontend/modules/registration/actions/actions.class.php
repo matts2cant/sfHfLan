@@ -29,12 +29,8 @@ class registrationActions extends sfActions
   {
     $event = EventTable::getInstance()->findUpComingEvent();
 
-    $this->ForwardUnless(
-      ($event) AND
-        ($event->getIsOpened()) AND
-          ($event->getTournaments()->count() > 0),
-      "registration", "closed"
-    );
+    $this->forward404IfNoEventUpcoming();
+
     $this->form = new TournamentChooserForm(array(), array('event' => $event));
 
     if ($request->isMethod('post'))
@@ -58,6 +54,8 @@ class registrationActions extends sfActions
   
   public function executeStep2(sfWebRequest $request)
   {
+    $this->forward404IfNoEventUpcoming();
+
     $tournament = $this->getUser()->getAttribute('tournament');
 
     $this->forward404Unless($tournament and $tournament instanceof Tournament);
@@ -118,6 +116,8 @@ class registrationActions extends sfActions
 
   public function executeConfirm(sfWebRequest $request)
   {
+    $this->forward404IfNoEventUpcoming();
+
     $players = $this->getUser()->getAttribute('players');
     $tournament = $this->getUser()->getAttribute('tournament');
 
@@ -133,6 +133,18 @@ class registrationActions extends sfActions
     $this->event = $event;
 
     $this->isUpComing = ($event);
+  }
+
+  protected function forward404IfNoEventUpcoming()
+  {
+    $event = EventTable::getInstance()->findUpComingEvent();
+
+    $this->ForwardUnless(
+      ($event) AND
+        ($event->getIsOpened()) AND
+          ($event->getTournaments()->count() > 0),
+      "registration", "closed"
+    );
   }
 
   protected function sendConfirmationMail($player)

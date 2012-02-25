@@ -22,6 +22,7 @@ class EventTable extends Doctrine_Table
         $now = date('Y-m-d H:i:s', time());
         $query = $this->createQuery('ev')->
                 where("ev.starts_at > ?", $now)->
+                andWhere("ev.is_public = ?", true)->
                 orderBy('starts_at ASC')->
                 limit(1);
         
