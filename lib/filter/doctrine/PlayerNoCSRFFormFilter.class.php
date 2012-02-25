@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * Player filter form.
+ *
+ * @package    sfHfLan
+ * @subpackage filter
+ * @author     Your name here
+ * @version    SVN: $Id: sfDoctrineFormFilterTemplate.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
+ */
+class PlayerNoCSRFFormFilter extends PlayerFormFilter
+{
+  public function configure()
+  {
+    parent::configure();
+    $this->disableCSRFProtection();
+  }
+}

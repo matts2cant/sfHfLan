@@ -15,8 +15,14 @@ generator:
       actions: ~
       fields:  ~
       list:
-        title: Gestion des articles
+        title: Gestion des joueurs
         display: [=firstname, =lastname, created_at]
+        actions:
+          _new: ~
+          booking: { label: Booking }
+          mailingList: { label: Generate Mailin-List }
+          exportCsv: { label: Export to CSV }
+          print: { label: Print }
       filter:  ~
       form:    ~
       edit:    ~

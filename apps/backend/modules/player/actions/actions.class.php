@@ -13,4 +13,46 @@ require_once dirname(__FILE__).'/../lib/playerGeneratorHelper.class.php';
  */
 class playerActions extends autoPlayerActions
 {
+  public function executeListBooking(sfWebRequest $request)
+  {
+
+  }
+
+  public function executeListMailingList(sfWebRequest $request)
+  {
+    $players = $this->getPlayersFromFilter();
+
+    if($players->count() > 0)
+    {
+      $emails = array();
+      foreach($players as $player)
+      {
+        $emails[] = $player->getEmail();
+      }
+      $this->emails = implode(", ", $emails);
+    }
+    else
+    {
+      $this->emails = false;
+    }
+
+  }
+
+  protected function getPlayersFromFilter()
+  {
+    $holder = $this->getUser()->getAttributeHolder()->getAll('admin_module');
+    $parameters = $holder['player.filters'];
+
+    $query = PlayerTable::getInstance()->createQuery();
+    $form = new PlayerNoCSRFFormFilter($parameters);
+    $form->setQuery($query);
+    if ($parameters) {
+      $form->bind($parameters);
+      if ($form->isValid()) {
+        $query = $form->getQuery(); // apply filters to the query
+      }
+    }
+
+    return $query->execute();
+  }
 }
