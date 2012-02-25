@@ -13,8 +13,20 @@
 </div>
 <?php if($event):?>
 <script type="text/javascript">
-  target = new Date('<?php echo $event->getStartsAt(); ?>');
-  console.log(target);
+  <?php
+    $time = strtotime($event->getStartsAt());
+    $Y = intval(strftime("%Y", $time));
+    $M = intval(strftime("%m", $time))-1;
+    $D = intval(strftime("%d", $time));
+    $h = intval(strftime("%H", $time));
+    $m = intval(strftime("%M", $time));
+    $s = intval(strftime("%S", $time));
+
+    $str = "$Y, $M, $D, $h, $m, $s, 00";
+  ?>
+  console.log("<?php echo $str;?>");
+  console.log(new Date(<?php echo $str;?>));
+  var target = new Date(<?php echo $str;?>);
   $('#defaultCountdown').countdown({until: target});
 </script>
 <?php endif;?>

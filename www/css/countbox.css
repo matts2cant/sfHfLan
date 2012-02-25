@@ -1,12 +1,8 @@
 
-.hasCountdown {
-    background-color: #eee;
-}
 .countdown_rtl {
     direction: rtl;
 }
 .countdown_holding span {
-    background-color: #ccc;
 }
 .countdown_row {
     clear: both;
