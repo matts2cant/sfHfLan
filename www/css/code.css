@@ -1,0 +1,8 @@
+.code
+{
+    font-family:'Courier New','Courier',monospace;
+    background-color: #f0f0f0;
+    border: dashed 1px #d0d0d0;
+    padding: 10px;
+    margin: 10px;
+}

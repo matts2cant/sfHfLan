@@ -12,6 +12,11 @@
 	float: right;
 }
 
+#header img
+{
+    float: left;
+}
+
 #loginbox
 {
 	width: 100%;
