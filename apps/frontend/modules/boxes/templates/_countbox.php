@@ -4,7 +4,12 @@
 
 <div id="countbox" class="sidebox">
   <h2>Prochaine LAN</h2>
-  <div id="defaultCountdown"></div>
+  <?php if($event): ?>
+    <div id="defaultCountdown"></div>
+  <?php else: ?>
+    <div>La date de la prochaine hf.lan n'est pas encore fixée.</div>
+  <?php endif; ?>
+  <div class="clear"></div>
 </div>
 <?php if($event):?>
 <script type="text/javascript">
