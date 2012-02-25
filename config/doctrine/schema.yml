@@ -72,7 +72,7 @@ Player:
     firstname:    { type: string(255), notnull: true }
     lastname:     { type: string(255), notnull: true }
     nickname:     { type: string(255) }
-    email:        { type: string(255), notnull: true }
+    email:        { type: string(255), unique: true, notnull: true }
     team:         { type: string(255) }
     team_tag:     { type: string(16) }
     pc_type:      { type: enum, values: [none, laptop, desktop], notnull: true }

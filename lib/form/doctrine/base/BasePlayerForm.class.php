@@ -53,7 +53,10 @@ abstract class BasePlayerForm extends BaseFormDoctrine
     ));
 
     $this->validatorSchema->setPostValidator(
-      new sfValidatorDoctrineUnique(array('model' => 'Player', 'column' => array('token')))
+      new sfValidatorAnd(array(
+        new sfValidatorDoctrineUnique(array('model' => 'Player', 'column' => array('email'))),
+        new sfValidatorDoctrineUnique(array('model' => 'Player', 'column' => array('token'))),
+      ))
     );
 
     $this->widgetSchema->setNameFormat('player[%s]');

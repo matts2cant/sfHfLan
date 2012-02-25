@@ -75,6 +75,7 @@ abstract class BasePlayer extends sfDoctrineRecord
              ));
         $this->hasColumn('email', 'string', 255, array(
              'type' => 'string',
+             'unique' => true,
              'notnull' => true,
              'length' => 255,
              ));
