@@ -9,6 +9,10 @@ class TournamentChooserForm extends BaseForm
     foreach($event->getTournaments() as $tournament)
     {
       $tournaments[$tournament->getId()] = $tournament->getName();
+      if($tournament->isFull())
+      {
+        $tournaments[$tournament->getId()] .= " (complet)";
+      }
     }
     
     $this->setWidget('tournament', new sfWidgetFormChoice(array(

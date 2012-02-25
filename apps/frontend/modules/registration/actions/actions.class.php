@@ -10,10 +10,9 @@
  */
 class registrationActions extends sfActions
 {
-  public function executeClosed(sfWebRequest $request)
-  {
-    
-  }
+  public function executeClosed(sfWebRequest $request) {}
+
+  public function executeFull(sfWebRequest $request) {}
   
   /**
   * Executes index action
@@ -29,7 +28,7 @@ class registrationActions extends sfActions
   {
     $event = EventTable::getInstance()->findUpComingEvent();
 
-    $this->forward404IfNoEventUpcoming();
+    $this->forwardClosedIfNoEventUpcoming();
 
     $this->form = new TournamentChooserForm(array(), array('event' => $event));
 
@@ -54,11 +53,13 @@ class registrationActions extends sfActions
   
   public function executeStep2(sfWebRequest $request)
   {
-    $this->forward404IfNoEventUpcoming();
+    $this->forwardClosedIfNoEventUpcoming();
 
     $tournament = $this->getUser()->getAttribute('tournament');
 
     $this->forward404Unless($tournament and $tournament instanceof Tournament);
+
+    $this->forwardIf($tournament->isFull(), "registration", "full");
 
     $this->form = new TournamentSignupForm(array(), array('tournament' => $tournament));
     if ($request->isMethod('post'))
@@ -116,13 +117,15 @@ class registrationActions extends sfActions
 
   public function executeConfirm(sfWebRequest $request)
   {
-    $this->forward404IfNoEventUpcoming();
+    $this->forwardClosedIfNoEventUpcoming();
 
     $players = $this->getUser()->getAttribute('players');
     $tournament = $this->getUser()->getAttribute('tournament');
 
     $this->forward404Unless($players);
     $this->forward404Unless($tournament and $tournament instanceof Tournament);
+
+    $this->forwardIf($tournament->isFull(), "registration", "full");
 
     foreach($players as $player)
     {
@@ -135,7 +138,7 @@ class registrationActions extends sfActions
     $this->isUpComing = ($event);
   }
 
-  protected function forward404IfNoEventUpcoming()
+  protected function forwardClosedIfNoEventUpcoming()
   {
     $event = EventTable::getInstance()->findUpComingEvent();
 

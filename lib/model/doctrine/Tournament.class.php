@@ -12,5 +12,29 @@
  */
 class Tournament extends BaseTournament
 {
+  public function isFull()
+  {
+    $count = PlayerTable::getInstance()->findByTournamentId($this->getId())->count();
 
+    if($this->getNumberOfTeams() <= 0)
+    {
+      return false;
+    }
+
+    if(!$this->getGame()->isNew())
+    {
+      $playersPerTeam = $this->getGame()->getPlayersPerTeam();
+    }
+    else
+    {
+      $playersPerTeam = 1;
+    }
+
+    if($count >= $this->getNumberOfTeams() * $playersPerTeam)
+    {
+      return true;
+    }
+
+    return false;
+  }
 }
