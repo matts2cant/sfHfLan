@@ -18,6 +18,7 @@
         <div id="page">
             <div id="header">
             </div>
+            <?php if ($sf_user->isAuthenticated()): ?>
             <div id="menu">
                 <ul>
                     <li><img src="/images/icons/page_white_edit.png"/>
@@ -46,6 +47,7 @@
                     </li>
                 </ul>
             </div>
+            <?php endif; ?>
             <div class="content">
                 <div class="right">
                     <?php echo link_to('Se déconnecter', 'sf_guard_signout') ?>
