@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <?php use_stylesheet('backend.css', 'first') ?>
+<?php use_stylesheet('icons.css') ?>
 <?php use_stylesheet('fonts.css') ?>
 <?php use_javascript('tiny_mce/tiny_mce.js') ?>
 
