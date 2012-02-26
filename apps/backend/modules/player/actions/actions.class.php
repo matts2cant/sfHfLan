@@ -13,6 +13,30 @@ require_once dirname(__FILE__).'/../lib/playerGeneratorHelper.class.php';
  */
 class playerActions extends autoPlayerActions
 {
+  public function executeListExportCsv(sfWebRequest $request)
+  {
+    $ms = true;
+    $this->options = array('ms' => $ms);
+
+    $query = $this->getPlayersFromFilterQuery();
+
+    $this->lines = $query->fetchArray();
+
+    $this->outstream = 'php://output';
+    $this->delimiter = $ms ? ';' : ',';
+    $this->enclosure = '"';
+    $this->charset   = array('db' => 'UTF-8', 'ms' => 'WINDOWS-1252//TRANSLIT');
+
+
+    sfConfig::set('sf_web_debug', false);
+    sfConfig::set('sf_escaping_strategy', false);
+    sfConfig::set('sf_charset', $ms ? $this->charset['ms'] : $this->charset['db']);
+    $this->getResponse()->clearHttpHeaders();
+    $this->getResponse()->setContentType('text/csv');
+    $this->getResponse()->setHttpHeader('content-disposition', 'attachment; filename=objectives.csv');
+    $this->setLayout(false);
+  }
+
   public function executeListBooking(sfWebRequest $request)
   {
     $this->form = new BookingForm();
@@ -26,13 +50,23 @@ class playerActions extends autoPlayerActions
         $emails = $values['input'];
         $tournament = TournamentTable::getInstance()->findOneById($values['tournament']);
 
+        $num = 0;
         foreach($emails as $email => $nick)
         {
-          $player = $this->createBookedPlayer($email, $nick, $tournament);
-          sendConfirmationMail($player);
+          $count = PlayerTable::getInstance()->findOneByEmail($email);
+          if($count)
+          {
+            $num++;
+            $this->getUser()->setFlash('error', $num." joueurs déja inscrit(s).");
+          }
+          else
+          {
+            $player = $this->createBookedPlayer($email, $nick, $tournament);
+            $this->sendConfirmationMail($player);
+          }
         }
 
-        $this->getUser()->setFlash('notice', count($emails)." reservations were made.");
+        $this->getUser()->setFlash('notice', (count($emails)-$num)." joueurs inscrits.");
       }
       else
       {
@@ -74,7 +108,7 @@ class playerActions extends autoPlayerActions
     return $player;
   }
 
-  protected function getPlayersFromFilter()
+  protected function getPlayersFromFilterQuery()
   {
     $holder = $this->getUser()->getAttributeHolder()->getAll('admin_module');
 
@@ -92,20 +126,29 @@ class playerActions extends autoPlayerActions
       }
     }
 
-    return $query->execute();
+    return $query;
+  }
+
+  protected function getPlayersFromFilter()
+  {
+    return $this->getPlayersFromFilter()->execute();
   }
 
   protected function sendConfirmationMail($player)
   {
-    $editUrl = $this->getController()->genUrl(array('sf_route' => "registration_edit_player", 'sf_subject' => $player), false);
-    $cancelUrl = $this->getController()->genUrl(array('sf_route' => "registration_cancel_player", 'sf_subject' => $player), false);
+    $editUrl = "http://www.hf-lan.fr/registration/edit/".$player->getToken();
+    $cancelUrl = "http://www.hf-lan.fr/registration/delete/".$player->getToken();
+
+    $nick = $player->getNickname();
 
     $message = $this->getMailer()->compose(
       array('noreply@hf-lan.fr' => 'hf.lan'),
       $player->getEmail(),
       'Confirmation de votre pré-inscription à la hf-lan.',
       <<<EOF
-Vous avez été pré-inscrit à le hf-lan !
+Bonjour, $nick.
+
+Vous avez été pré-inscrit à la hf-lan !
 
 Pour finaliser votre inscription, merci de compléter votre fiche à l'adresse suivante :
 $editUrl

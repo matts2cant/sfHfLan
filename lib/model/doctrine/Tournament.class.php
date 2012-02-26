@@ -21,20 +21,45 @@ class Tournament extends BaseTournament
       return false;
     }
 
-    if(!$this->getGame()->isNew())
-    {
-      $playersPerTeam = $this->getGame()->getPlayersPerTeam();
-    }
-    else
-    {
-      $playersPerTeam = 1;
-    }
-
-    if($count >= $this->getNumberOfTeams() * $playersPerTeam)
+    if($count >= $this->getNumberOfTeams() * $this->getPlayersPerTeam())
     {
       return true;
     }
 
     return false;
+  }
+
+  public function getPrizePool()
+  {
+    return $this->getNumberOfTeams() * $this->getPlayersPerTeam() * $this->getInscriptionPrice();
+  }
+
+  public function getSubtournamentPrizePool()
+  {
+    return $this->getNumberOfTeams() * $this->getPlayersPerTeam() * $this->getSubtournamentInscriptionPrice();
+  }
+
+  public function getPlayersPerTeam()
+  {
+    if($this->hasGame())
+    {
+      return $this->getGame()->getPlayersPerTeam();
+    }
+    else
+    {
+      return 1;
+    }
+  }
+
+  public function hasGame()
+  {
+    if($this->getGameId())
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
   }
 }

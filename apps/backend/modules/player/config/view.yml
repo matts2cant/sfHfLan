@@ -1,0 +1,5 @@
+listExportCsvSuccess:
+  has_layout: off
+  http_metas:
+    content-type: text/comma-separated-values
+    content-disposition: attachment; filename="players.csv"

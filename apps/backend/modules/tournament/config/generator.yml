@@ -16,7 +16,7 @@ generator:
       fields:  ~
       list:
         title: Gestion des tournois
-        display: [=name, number_of_teams, inscription_prize, prize_pool]
+        display: [=name, number_of_teams, inscription_price, prize_pool]
       filter:  ~
       form:    ~
       edit:

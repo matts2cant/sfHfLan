@@ -15,7 +15,7 @@ class sfValidatorBooking extends sfValidatorBase
     {
       throw new sfValidatorError($this, 'The value is not a string');
     }
-    $lines = explode("\n", $value);
+    $lines = explode("\r\n", $value);
     $players = array();
     $validator = new sfValidatorEmail();
     foreach($lines as $line)

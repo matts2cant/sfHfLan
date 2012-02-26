@@ -8,7 +8,7 @@
  * @property string $name
  * @property timestamp $starts_at
  * @property timestamp $finishes_at
- * @property integer $entry_prize
+ * @property integer $entry_price
  * @property boolean $is_public
  * @property boolean $is_opened
  * @property Doctrine_Collection $Tournaments
@@ -16,14 +16,14 @@
  * @method string              getName()        Returns the current record's "name" value
  * @method timestamp           getStartsAt()    Returns the current record's "starts_at" value
  * @method timestamp           getFinishesAt()  Returns the current record's "finishes_at" value
- * @method integer             getEntryPrize()  Returns the current record's "entry_prize" value
+ * @method integer             getEntryPrice()  Returns the current record's "entry_price" value
  * @method boolean             getIsPublic()    Returns the current record's "is_public" value
  * @method boolean             getIsOpened()    Returns the current record's "is_opened" value
  * @method Doctrine_Collection getTournaments() Returns the current record's "Tournaments" collection
  * @method Event               setName()        Sets the current record's "name" value
  * @method Event               setStartsAt()    Sets the current record's "starts_at" value
  * @method Event               setFinishesAt()  Sets the current record's "finishes_at" value
- * @method Event               setEntryPrize()  Sets the current record's "entry_prize" value
+ * @method Event               setEntryPrice()  Sets the current record's "entry_price" value
  * @method Event               setIsPublic()    Sets the current record's "is_public" value
  * @method Event               setIsOpened()    Sets the current record's "is_opened" value
  * @method Event               setTournaments() Sets the current record's "Tournaments" collection
@@ -49,7 +49,7 @@ abstract class BaseEvent extends sfDoctrineRecord
         $this->hasColumn('finishes_at', 'timestamp', null, array(
              'type' => 'timestamp',
              ));
-        $this->hasColumn('entry_prize', 'integer', null, array(
+        $this->hasColumn('entry_price', 'integer', null, array(
              'type' => 'integer',
              ));
         $this->hasColumn('is_public', 'boolean', null, array(

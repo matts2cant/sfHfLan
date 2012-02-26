@@ -6,13 +6,12 @@
     <h1>INSCRIPTIONS</h1>
     <?php include_partial("registration/progress", array("current_step" => 2)); ?>
   <br/>
-  <center>
-    <strong>
-      Félicitations ! Vous êtes maintenant inscrit à la hf-lan<br/>
-      <br/>
-      Voici cependant quelques points importants à ne pas oublier :<br/>
-    </strong>
-  </center>
+  Félicitations ! Vous êtes maintenant inscrit à la hf-lan.<br/>
+  <br/>
+  Un email précisant les URLs vous permettant d'éditer vos information, ou de vous désinscrire, vous à été envoyé.<br/>
+  <br/>
+  Voici également quelques points importants à ne pas oublier :<br/>
+
   <br/>
 
   <h2>

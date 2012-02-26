@@ -16,7 +16,7 @@ generator:
       fields:
       list:
         title: Gestion des évènements
-        display: [=name, starts_at, entry_prize]
+        display: [=name, starts_at, entry_price]
         fields:
           starts_at:
             label: Date

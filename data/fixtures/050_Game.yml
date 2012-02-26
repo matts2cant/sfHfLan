@@ -4,6 +4,7 @@ Game:
     rules: ~
     players_per_team: 1
     icon: ~
+    requires_bnet_id: true
     
   lol:
     name: League of Legends

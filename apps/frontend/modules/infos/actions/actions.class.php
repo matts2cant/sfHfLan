@@ -19,7 +19,15 @@ class infosActions extends sfActions
   {
     $event = EventTable::getInstance()->findUpComingEvent();
     $this->event = $event;
-    
-    $this->isUpComing = ($event);
+
+    if($event)
+    {
+      $this->isUpComing = true;
+    }
+    else
+    {
+      $this->isUpComing = false;
+    }
+
   }
 }

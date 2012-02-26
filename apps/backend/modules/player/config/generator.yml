@@ -20,9 +20,9 @@ generator:
         actions:
           _new: ~
           booking: { label: Booking }
-          mailingList: { label: Generate Mailin-List }
+          mailingList: { label: Generate Mailing-List }
           exportCsv: { label: Export to CSV }
-          print: { label: Print }
+          #print: { label: Print }
       filter:  ~
       form:    ~
       edit:    ~

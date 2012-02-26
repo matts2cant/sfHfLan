@@ -33,7 +33,7 @@ Event:
     name:         { type: string(255), notnull: true}
     starts_at:    { type: timestamp }
     finishes_at:  { type: timestamp }
-    entry_prize:  { type: integer }
+    entry_price:  { type: integer }
     is_public:    { type: boolean, notnull: true, default: 1 }
     is_opened:    { type: boolean, notnull: true, default: 1 }
     
@@ -41,12 +41,11 @@ Tournament:
   columns:
     name:                 { type: string(255), notnull: true}
     number_of_teams:      { type: integer, notnull: true }
-    prize_pool:           { type: integer, notnull: true }
-    inscription_prize:    { type: integer }
+    inscription_price:    { type: integer }
     event_id:             { type: integer, notnull: true }
     game_id:              { type: integer, notnull: false }
     is_subtournament_enabled: { type: boolean, default: false }
-    subtournament_price:  { type: integer }
+    subtournament_inscription_price:  { type: integer }
     subtournament_name:   { type: string(255) }
   relations:
     Event:    { onDelete: CASCADE, local: event_id, foreign: id, foreignAlias: Tournaments }

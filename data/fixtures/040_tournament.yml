@@ -2,33 +2,29 @@ Tournament:
   cazu:
     name: Zone multi-gaming
     number_of_teams: 64
-    prize_pool: 0
-    inscription_prize: 0
+    inscription_price: 0
     Event: hflan_2011_w
     
   tn_sc2:
     name: Tournois Starcraft 2
     number_of_teams: 32
-    prize_pool: 448
-    inscription_prize: 14
+    inscription_price: 14
     Event: hflan_2011_w
     Game: sc2
     
   tn_lol:
     name: Tournois League of Legends
     number_of_teams: 12
-    prize_pool: 840
-    inscription_prize: 14
+    inscription_price: 14
     Event: hflan_2011_w
     Game: lol
     
   tn_ssbm_s:
     name: Tournois Smash Bros Melee
     number_of_teams: 64
-    prize_pool: 640
-    inscription_prize: 10
+    inscription_price: 10
     Event: hflan_2011_w
     Game: ssbm
     is_subtournament_enabled: true
-    subtournament_price: 10
+    subtournament_inscription_price: 10
     subtournament_name: Tournois double

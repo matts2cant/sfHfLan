@@ -15,7 +15,7 @@ class PlayerTournamentForm extends PlayerForm
     parent::configure();
     $tournament = $this->getOption('tournament');
     unset($this['tournament_id'], $this['team'], $this['team_tag']);
-    if(!$tournament->getGame()->getRequiresBnetId())
+    if(!$tournament->hasGame() OR !$tournament->getGame()->getRequiresBnetId())
     {
       unset($this['bnet_email'], $this['bnet_ccode']);
     }
@@ -27,9 +27,9 @@ class PlayerTournamentForm extends PlayerForm
     else
     {
       $stName = $tournament->getSubtournamentName();
-      if($tournament->getSubtournamentPrice() > 0)
+      if($tournament->getSubtournamentInscriptionPrice() > 0)
       {
-        $stName .= " (+".$tournament->getSubtournamentPrice()."€)";
+        $stName .= " (+".$tournament->getSubtournamentInscriptionPrice()."€)";
       }
       else
       {

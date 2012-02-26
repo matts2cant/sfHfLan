@@ -192,3 +192,29 @@ body
     font-weight: normal;
     font-size: 20px;
 }
+
+.flash_notice,
+.flash_error
+{
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px 0px 8px 0px;
+    font-size: 13pt;
+    text-align: center;
+}
+
+.flash_notice
+{
+    background-color: #d7e4a2;
+    color: #7f9f00;
+    border-top: solid 1px #b7d24d;
+    border-bottom: solid 1px #b7d24d;
+}
+
+.flash_error
+{
+    background-color: #e4a2a2;
+    color: #9f0000;
+    border-top: solid 1px #d24d4d;
+    border-bottom: solid 1px #d24d4d;
+}
