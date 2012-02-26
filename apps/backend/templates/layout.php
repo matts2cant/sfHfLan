@@ -18,6 +18,9 @@
         <div id="topline"></div>
         <div id="page">
             <div id="header">
+              <a href="<?php echo url_for("dashboard/index"); ?>">
+                <img src="/images/logo.png"/>
+              </a>
             </div>
             <?php if ($sf_user->isAuthenticated()): ?>
             <div id="menu">
@@ -50,9 +53,11 @@
             </div>
             <?php endif; ?>
             <div class="content">
+                <?php if ($sf_user->isAuthenticated()): ?>
                 <div class="right">
-                    <?php echo link_to('Se déconnecter', 'sf_guard_signout') ?>
+                  <?php echo $sf_user->getName(); ?> - <?php echo link_to('Se déconnecter', 'sf_guard_signout') ?>
                 </div>
+                <?php endif; ?>
                 <?php echo $sf_content;?>
                 <div class="clear"></div>
             </div>
