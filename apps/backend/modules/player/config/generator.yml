@@ -24,6 +24,20 @@ generator:
           exportCsv: { label: Export to CSV }
           #print: { label: Print }
       filter:  ~
-      form:    ~
+      form:
+        display:
+          - firstname
+          - lastname
+          - nickname
+          - email
+          - team
+          - team_tag
+          - tournament_id
+          - bnet_email
+          - bnet_ccode
+          - pc_type
+          - wants_cable
+          - subtournament
+          - _token
       edit:    ~
       new:     ~

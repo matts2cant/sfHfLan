@@ -12,7 +12,7 @@ class PlayerForm extends BasePlayerForm
 {
   public function configure()
   {
-    unset($this['created_at'], $this['updated_at'], $this['slug'], $this['token']);
+    unset($this['created_at'], $this['updated_at']);
 
     $this->widgetSchema->setLabels(array(
       'firstname'    => 'Prénom',
@@ -22,12 +22,21 @@ class PlayerForm extends BasePlayerForm
       'team'   => 'Team',
       'team_tag' => 'Tag de team',
       'pc_type'    => 'Type de PC',
-      'wants_cable'   => 'Achat d\'un cable réseau',
+      'wants_cable'   => 'Cable réseau ?',
       'bnet_email'    => 'email Battle.net',
       'bnet_ccode'   => 'Character Code',
       'tournament_id' => 'Tournoi',
       'subtournament'    => 'Sous-tournoi',
     ));
+
+    $this->setWidget('email', new sfWidgetFormInput());
+    $this->setValidator('email', new sfValidatorEmail());
+
+    $this->setWidget('bnet_email', new sfWidgetFormInput());
+    $this->setValidator('bnet_email', new sfValidatorEmail());
+
+    $this->setWidget('bnet_ccode', new sfWidgetFormInput());
+    $this->setValidator('bnet_ccode', new sfValidatorInteger());
 
     if(!$this->isNew())
     {
@@ -39,9 +48,9 @@ class PlayerForm extends BasePlayerForm
       else
       {
         $stName = $tournament->getSubtournamentName();
-        if($tournament->getSubtournamentPrice() > 0)
+        if($tournament->getSubtournamentInscriptionPrice() > 0)
         {
-          $stName .= " (+".$tournament->getSubtournamentPrice()."€)";
+          $stName .= " (+".$tournament->getSubtournamentInscriptionPrice()."€)";
         }
         else
         {

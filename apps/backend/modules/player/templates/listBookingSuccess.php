@@ -8,7 +8,7 @@
 <div class="flash_error"><?php echo $sf_user->getFlash('error') ?></div>
 <?php endif ?>
 
-<form method="post" action="<?php echo url_for("player/listBooking"); ?>">
+<form method="post" action="<?php echo url_for("player/ListBooking"); ?>">
   <table class="booking">
     <?php echo $form; ?>
     <tr>

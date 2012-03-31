@@ -1,17 +1,4 @@
-/* 
-    Document   : registration
-    Created on : 19 févr. 2012, 22:16:03
-    Author     : matt
-    Description:
-        Purpose of the stylesheet follows.
-*/
-
-/* 
-   TODO customize this sample style
-   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
-*/
-
-table 
+table
 {
   width: 100%;
 }
@@ -56,5 +43,26 @@ table table
     font-weight: bold;
 }
 
+.cancel-registration
+{
+    width: 100%;
+    text-align: center;
+}
+
+.cancel-registration a
+{
+    color: #9f0000;
+    font-size: 20px;
+}
+
+.cancel-registration a:hover
+{
+    color: #ff0000;
+}
+
+.submit-cell
+{
+    text-align: right;
+}
 
 

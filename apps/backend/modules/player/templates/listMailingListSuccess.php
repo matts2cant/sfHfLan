@@ -2,7 +2,7 @@
 
 <h1>Génération de mailing-list</h1>
 <h2>Lien</h2>
-<a href="mailto:<?php echo $emails; ?>">&raquo; Cliquez ici</a>
+<a href="mailto:<?php echo $link; ?>">&raquo; Cliquez ici</a>
 
 <h2>Texte</h2>
 <div class="code">

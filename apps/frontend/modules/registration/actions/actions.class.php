@@ -23,7 +23,7 @@ class registrationActions extends sfActions
   {
     $this->redirect("registration/step1");
   }
-  
+
   public function executeStep1(sfWebRequest $request)
   {
     $event = EventTable::getInstance()->findUpComingEvent();
@@ -44,7 +44,7 @@ class registrationActions extends sfActions
       }
       else
       {
-        $this->getUser()->setFlash('error', "Erreurs dans le formulaire.");
+        $this->getUser()->setFlash('error', "Erreurs dans le formulaire.", false);
       }
     }
   }
@@ -68,12 +68,12 @@ class registrationActions extends sfActions
         $this->form->save();
         $players = $this->form->getPlayers();
         $this->getUser()->setAttribute('players', $players);
-        $this->getUser()->setFlash('notice', "Inscription prise en compte !");
+        $this->getUser()->setFlash('notice', "Inscription prise en compte !", false);
         $this->redirect("registration/confirm");
       }
       else
       {
-        $this->getUser()->setFlash('error', "Erreurs dans le formulaire.");
+        $this->getUser()->setFlash('error', "Erreurs dans le formulaire.", false);
       }
     }
   }
@@ -82,7 +82,9 @@ class registrationActions extends sfActions
   {
     $this->player = $this->getRoute()->getObject();
 
-    $this->form = new PlayerPublicForm($this->player);
+    $tournament = $this->player->getTournament();
+
+    $this->form = new PlayerTournamentForm($this->player, array('tournament' => $tournament));
 
     if($request->isMethod('post'))
     {
@@ -90,11 +92,11 @@ class registrationActions extends sfActions
       if ($this->form->isValid())
       {
         $this->form->save();
-        $this->getUser()->setFlash('notice', "Fiche du joueur mise a jour.");
+        $this->getUser()->setFlash('notice', "Fiche du joueur mise a jour.", false);
       }
       else
       {
-        $this->getUser()->setFlash('error', "Erreurs dans le formulaire.");
+        $this->getUser()->setFlash('error', "Erreurs dans le formulaire.", false);
       }
     }
   }
@@ -108,7 +110,7 @@ class registrationActions extends sfActions
 
     $this->player->delete();
 
-    $this->getUser()->setFlash('notice', "La désinscription de $firstName $lastName a bien été prise en compte.");
+    $this->getUser()->setFlash('notice', "La désinscription de $firstName $lastName a bien été prise en compte.", false);
 
     $this->redirect("home/index");
   }
@@ -150,22 +152,31 @@ class registrationActions extends sfActions
 
   protected function sendConfirmationMail($player)
   {
-    $editUrl = $this->getController()->genUrl(array('sf_route' => "registration_edit_player", 'sf_subject' => $player), false);
-    $cancelUrl = $this->getController()->genUrl(array('sf_route' => "registration_cancel_player", 'sf_subject' => $player), false);
+    $editUrl = "http://www.hf-lan.fr/inscriptions/edit/".$player->getToken();
+    $cancelUrl = "http://www.hf-lan.fr/inscriptions/cancel/".$player->getToken();
 
     $message = $this->getMailer()->compose(
       array('noreply@hf-lan.fr' => 'hf.lan'),
       $player->getEmail(),
-      'Confirmation de votre inscription à la hf-lan.',
+      'Vous êtes inscrit à la hf-lan / You are registered to the hf.lan',
       <<<EOF
 Votre inscription à la hf.lan a bien été enregistré.
 
-Vous voulez modifier votre inscription avec le lien suivant :
+Vous pouvez modifier votre inscription ou vous désinscrire avec le lien suivant :
 $editUrl
-Ou vous désinscrire grâce à ce lien :
-$cancelUrl
 
 Pour toute information complémentaire, n'hésitez pas à contecter le staff hf.lan.
+infos@hf-lan.fr
+
+--------------------
+
+Your registration to the hf.lan is now complete !
+
+You can modify your registration at the following URL:
+$editUrl
+
+For any additional information, make sure to contact the hf.lan staff :
+infos@hf-lan.fr
 EOF
     );
     $this->getMailer()->send($message);

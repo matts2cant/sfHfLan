@@ -57,7 +57,7 @@ class playerActions extends autoPlayerActions
           if($count)
           {
             $num++;
-            $this->getUser()->setFlash('error', $num." joueurs déja inscrit(s).");
+            $this->getUser()->setFlash('error', $num." joueurs déja inscrit(s).", false);
           }
           else
           {
@@ -66,11 +66,11 @@ class playerActions extends autoPlayerActions
           }
         }
 
-        $this->getUser()->setFlash('notice', (count($emails)-$num)." joueurs inscrits.");
+        $this->getUser()->setFlash('notice', (count($emails)-$num)." joueurs inscrits.", false);
       }
       else
       {
-        $this->getUser()->setFlash('error', "Erreurs dans le formulaire.");
+        $this->getUser()->setFlash('error', "Erreurs dans le formulaire.", false);
       }
     }
   }
@@ -86,11 +86,13 @@ class playerActions extends autoPlayerActions
       {
         $emails[] = $player->getEmail();
       }
-      $this->emails = implode(",", $emails);
+      $this->emails = implode(", ", $emails);
+      $this->link = implode(",", $emails);
     }
     else
     {
       $this->emails = false;
+      $this->link = false;
     }
 
   }
@@ -131,32 +133,44 @@ class playerActions extends autoPlayerActions
 
   protected function getPlayersFromFilter()
   {
-    return $this->getPlayersFromFilter()->execute();
+    return $this->getPlayersFromFilterQuery()->execute();
   }
 
   protected function sendConfirmationMail($player)
   {
-    $editUrl = "http://www.hf-lan.fr/registration/edit/".$player->getToken();
-    $cancelUrl = "http://www.hf-lan.fr/registration/delete/".$player->getToken();
+    $editUrl = "http://www.hf-lan.fr/inscriptions/edit/".$player->getToken();
+    $cancelUrl = "http://www.hf-lan.fr/inscriptions/cancel/".$player->getToken();
 
     $nick = $player->getNickname();
 
     $message = $this->getMailer()->compose(
       array('noreply@hf-lan.fr' => 'hf.lan'),
       $player->getEmail(),
-      'Confirmation de votre pré-inscription à la hf-lan.',
+      'Confirmez votre pré-inscription à la hf-lan / Confirm your pre-registration for the hf.lan',
       <<<EOF
 Bonjour, $nick.
 
 Vous avez été pré-inscrit à la hf-lan !
+http://www.hf-lan.fr
 
 Pour finaliser votre inscription, merci de compléter votre fiche à l'adresse suivante :
 $editUrl
 
-Si vous souhaitez finalement vous désinscrire, cliquez sur le lien suivant :
-$cancelUrl
+Pour toute information complémentaire, n'hésitez pas à contecter le staff hf.lan :
+infos@hf-lan.fr
 
-Pour toute information complémentaire, n'hésitez pas à contecter le staff hf.lan.
+------------------------
+
+Hello, $nick.
+
+You have been pre-registered to the hf-lan !
+http://www.hf-lan.fr
+
+To complete your inscription, please fill the following form :
+$editUrl
+
+For any additional information, make sure to contact the hf.lan staff :
+infos@hf-lan.fr
 EOF
     );
     $this->getMailer()->send($message);

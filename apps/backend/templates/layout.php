@@ -49,6 +49,14 @@
                             <li>&raquo; <?php echo link_to('Permissions', 'guard/permissions') ?> </li>
                         </ul>
                     </li>
+                    <li><img src="/images/icons/world_link.png"/>
+                      Liens
+                      <ul>
+                        <li>&raquo; <a href="http://www.hf-lan.fr">Site hf.lan</a></li>
+                        <li>&raquo; <a href="http://redmine.hf-lan.fr">Redmine</a></li>
+                        <li>&raquo; <a href="http://mail.hf-lan.fr">Boite mail</a></li>
+                      </ul>
+                    </li>
                 </ul>
             </div>
             <?php endif; ?>

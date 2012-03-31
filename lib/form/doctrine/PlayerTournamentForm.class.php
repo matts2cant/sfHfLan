@@ -13,6 +13,8 @@ class PlayerTournamentForm extends PlayerForm
   public function configure()
   {
     parent::configure();
+    unset($this['token']);
+
     $tournament = $this->getOption('tournament');
     unset($this['tournament_id'], $this['team'], $this['team_tag']);
     if(!$tournament->hasGame() OR !$tournament->getGame()->getRequiresBnetId())
