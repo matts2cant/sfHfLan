@@ -12,7 +12,7 @@ class PlayerForm extends BasePlayerForm
 {
   public function configure()
   {
-    unset($this['created_at'], $this['updated_at']);
+    unset($this['created_at'], $this['updated_at'], $this['token']);
 
     $this->widgetSchema->setLabels(array(
       'firstname'    => 'Prénom',
@@ -33,10 +33,10 @@ class PlayerForm extends BasePlayerForm
     $this->setValidator('email', new sfValidatorEmail());
 
     $this->setWidget('bnet_email', new sfWidgetFormInput());
-    $this->setValidator('bnet_email', new sfValidatorEmail());
+    $this->setValidator('bnet_email', new sfValidatorEmail(array("required" => false)));
 
     $this->setWidget('bnet_ccode', new sfWidgetFormInput());
-    $this->setValidator('bnet_ccode', new sfValidatorInteger());
+    $this->setValidator('bnet_ccode', new sfValidatorInteger(array("required" => false)));
 
     if(!$this->isNew())
     {
