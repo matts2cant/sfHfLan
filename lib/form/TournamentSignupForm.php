@@ -2,13 +2,14 @@
 
 class TournamentSignupForm extends BaseForm
 {
+  protected $playerCount;
 
   public function configure()
   {
     $tournament = $this->getOption('tournament');
-    $count = $tournament->getGame()->getPlayersPerTeam();
+    $this->playerCount = $tournament->getGame()->getPlayersPerTeam();
 
-    $count = max(1, $count);
+    $this->playerCount = max(1, $this->playerCount);
 
     if($tournament->getGame()->getPlayersPerTeam() > 1)
     {
@@ -22,12 +23,30 @@ class TournamentSignupForm extends BaseForm
       ));
     }
 
-    for ($i = 0; $i < $count; $i++) {
+    for ($i = 0; $i < $this->playerCount; $i++) {
       $player = new Player();
       $player->setTournament($tournament);
       $this->embedForm('player_' . ($i + 1), new PlayerTournamentForm($player, array('tournament' => $tournament)));
       $this->widgetSchema->setLabel('player_' . ($i + 1), 'Joueur ' . ($i + 1));
     }
+
+    $this->validatorSchema->setPostValidator(new sfValidatorCallback(array('callback' => array($this, 'checkDifferentEmails'))));
+  }
+
+  public function checkDifferentEmails($validator, $values)
+  {
+    $emails = array();
+    for ($i = 0; $i < $this->playerCount; $i++)
+    {
+      $emails[$values['player_' . ($i + 1)]['email']] = $i;
+    }
+
+    if(count($emails) != $this->playerCount)
+    {
+      throw new sfValidatorErrorSchema($validator, array(new sfValidatorError($validator, "Veuillez entrer des emails différents")));
+    }
+
+    return $values;
   }
 
   public function getPlayers()
