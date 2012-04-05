@@ -22,7 +22,7 @@ class blogActions extends sfActions
         sfConfig::get('app_max_blog_on_page')
     );
     
-    $this->pager->setQuery(ArticleTable::getInstance()->getPublishedBlogsQuery());
+    $this->pager->setQuery(ArticleTable::getInstance()->getPublishedQuery());
     $this->pager->setPage($request->getParameter('page', 1));
     $this->pager->init();
   }

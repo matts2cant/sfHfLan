@@ -74,6 +74,7 @@
             Prize-pool : <?php echo $tournament->getPrizePool(); ?>€<br/>
             <?php if ($tournament->getIsSubtournamentEnabled()): ?>
             &#8627; <?php echo "Optionnel : " . $tournament->getSubtournamentName(); ?>
+            <?php echo "(Prize-Pool : " . $tournament->getSubtournamentPrizePool() . " €)"; ?><br/>
             <?php endif;?>
             <a href="/uploads/games/rules/<?php echo $tournament->getGame()->getRules(); ?>"/>&raquo; Lire le
             réglement</a><br/>

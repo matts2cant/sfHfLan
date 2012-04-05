@@ -27,7 +27,7 @@ class TournamentSignupForm extends BaseForm
       $player = new Player();
       $player->setTournament($tournament);
       $this->embedForm('player_' . ($i + 1), new PlayerTournamentForm($player, array('tournament' => $tournament)));
-      $this->widgetSchema->setLabel('player_' . ($i + 1), 'Joueur ' . ($i + 1));
+      $this->widgetSchema->setLabel('player_' . ($i + 1), 'Joueur ' . ($i + 1) . '<br/><span class="small">Player '. ($i + 1) .'</span>');
     }
 
     $this->validatorSchema->setPostValidator(new sfValidatorCallback(array('callback' => array($this, 'checkDifferentEmails'))));

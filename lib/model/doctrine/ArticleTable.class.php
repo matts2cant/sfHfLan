@@ -16,23 +16,28 @@ class ArticleTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Article');
     }
-    
+
+    public function getPublishedQuery()
+    {
+      $query = self::getInstance()
+        ->createQuery('a')
+        ->where("a.is_shown = ?", 1)
+        ->orderBy('a.created_at DESC');
+
+      return $query;
+    }
+
     public function getPublishedBlogsQuery()
     {
-        $query = self::getInstance()
-            ->createQuery('a')
-            ->where('a.type = ?', 'blog')
-            ->andWhere("a.is_shown = ?", 1)
-            ->orderBy('a.created_at DESC');
+        $query = $this->getPublishedQuery()
+            ->andWhere('a.type = ?', 'blog');
         
         return $query;
     }
     
     public function getPublishedQueryWithSearch($text)
     {
-        $query = $this->createQuery('a')
-            ->where("a.is_shown = ?", 1)
-            ->orderBy('a.created_at DESC');
+        $query = $this->getPublishedQuery();
         
         $query = $this->search($text, $query);
         
@@ -41,11 +46,8 @@ class ArticleTable extends Doctrine_Table
     
     public function getPublishedSliderQuery()
     {
-        $query = self::getInstance()
-            ->createQuery('a')
-            ->where('a.type = ?', 'slider')
-            ->andWhere("a.is_shown = ?", 1)
-            ->orderBy('a.created_at DESC');
+        $query = $this->getPublishedQuery()
+          ->andWhere('a.type = ?', 'slider');
         
         return $query;
     }
@@ -56,6 +58,14 @@ class ArticleTable extends Doctrine_Table
                 ->limit(4);
         
         return $query->execute();
+    }
+
+    public function getFourLastArticles()
+    {
+      $query = self::getInstance()->getPublishedQuery()
+        ->limit(4);
+
+      return $query->execute();
     }
     
     public function getFourLastSliderArticles()

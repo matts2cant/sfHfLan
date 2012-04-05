@@ -14,21 +14,6 @@ class PlayerForm extends BasePlayerForm
   {
     unset($this['created_at'], $this['updated_at'], $this['token']);
 
-    $this->widgetSchema->setLabels(array(
-      'firstname'    => 'Prénom',
-      'lastname'   => 'Nom',
-      'nickname' => 'Pseudo',
-      'email'    => 'email',
-      'team'   => 'Team',
-      'team_tag' => 'Tag de team',
-      'pc_type'    => 'Type de PC',
-      'wants_cable'   => 'Cable réseau ?',
-      'bnet_email'    => 'email Battle.net',
-      'bnet_ccode'   => 'Character Code',
-      'tournament_id' => 'Tournoi',
-      'subtournament'    => 'Sous-tournoi',
-    ));
-
     $this->setWidget('email', new sfWidgetFormInput());
     $this->setValidator('email', new sfValidatorEmail());
 

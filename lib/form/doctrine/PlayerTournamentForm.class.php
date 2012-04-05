@@ -14,6 +14,21 @@ class PlayerTournamentForm extends PlayerForm
   {
     parent::configure();
 
+    $this->widgetSchema->setLabels(array(
+      'firstname'    => 'Prénom<br/><span class="small">First name</span>',
+      'lastname'   => 'Nom<br/><span class="small">Last Name</span>',
+      'nickname' => 'Pseudo<br/><span class="small">Nickname</span>',
+      'email'    => 'email',
+      'team'   => 'Nom d\'quipe<br/><span class="small">Team name</span>',
+      'team_tag' => 'Tag d\'équipe<br/><span class="small">Team tag</span>',
+      'pc_type'    => 'Type de PC<br/><span class="small">PC type</span>',
+      'wants_cable'   => 'Cable réseau ? (+7€)<br/><span class="small">Network cable ?(+7€)</span>',
+      'bnet_email'    => 'email Battle.net<br/><span class="small">Battle.net email</span>',
+      'bnet_ccode'   => 'Character Code',
+      'tournament_id' => 'Tournoi<br/><span class="small">Tournament</span>',
+      'subtournament'    => 'Sous-tournoi<br/><span class="small">Sub-tournament</span>',
+    ));
+
     $tournament = $this->getOption('tournament');
     unset($this['tournament_id'], $this['team'], $this['team_tag']);
     if(!$tournament->hasGame() OR !$tournament->getGame()->getRequiresBnetId())
