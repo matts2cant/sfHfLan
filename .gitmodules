@@ -1,3 +1,6 @@
 [submodule "plugins/sfLESSPlugin"]
 	path = plugins/sfLESSPlugin
 	url = git://github.com/everzet/sfLESSPlugin.git
+[submodule "lib/vendor/lessphp"]
+	path = lib/vendor/lessphp
+	url = http://github.com/leafo/lessphp.git
