@@ -4,18 +4,18 @@
 # homepage rules
 homepage:
   url:   /
-  param: { module: home, action: index }
+  param: { module: home, action: index, nav: home  }
 
 # blog rules
 blog_list:
   url:   blog
-  param:   { module: blog, action: list }
+  param:   { module: blog, action: list, nav: blog }
   requirements:
     sf_method: [get]
     
 blog_search:
   url:   search
-  param:   { module: blog, action: search }
+  param:   { module: blog, action: search, nav: blog  }
   requirements:
     sf_method: [post]
     
@@ -23,73 +23,80 @@ blog_view:
   url:   blog/:slug
   class:   sfDoctrineRoute
   options: { model: Article,   type: object }
-  param:   { module: blog, action: show }
+  param:   { module: blog, action: show, nav: blog  }
   requirements:
     sf_method: [get]
 
 # info rules
 infos_index:
   url:   informations
-  param:   { module: infos, action: index }
+  param:   { module: infos, action: index, nav: info  }
   requirements:
     sf_method: [get]
     
 # partners rules
 partners_index:
   url:   partenaires
-  param:   { module: partners, action: index }
+  param:   { module: partners, action: index, nav: partner  }
   requirements:
     sf_method: [get]
     
 # access rules
 access_index:
   url:   acces
-  param:   { module: access, action: index }
+  param:   { module: access, action: index, nav: access  }
+  requirements:
+    sf_method: [get]
+
+# rules rules
+rules_index:
+  url:   reglements
+  param:   { module: rules, action: index, nav: rules  }
   requirements:
     sf_method: [get]
     
 # contact rules
 contact_index:
   url:   contact
-  param:   { module: contact, action: index }
+  param:   { module: contact, action: index, nav: contact  }
   requirements:
     sf_method: [get]
     
 # archives rules
 archives_index:
   url:   archives
-  param:   { module: archives, action: index }
+  param:   { module: archives, action: index, nav: archives  }
   requirements:
     sf_method: [get]
     
 # registration rules
 registration_index:
   url:   inscriptions
-  param:   { module: registration, action: index }
+  param:   { module: registration, action: index, nav: reg  }
   requirements:
     sf_method: [get]
 
 registration_step1:
   url:   inscriptions/etape1
-  param:   { module: registration, action: step1 }
+  param:   { module: registration, action: step1, nav: reg  }
   requirements:
     sf_method: [get, post]
     
 registration_step2:
   url:   inscriptions/etape2
-  param:   { module: registration, action: step2 }
+  param:   { module: registration, action: step2, nav: reg }
   requirements:
     sf_method: [get, post]
 
 registration_closed:
   url:   inscriptions/indisponible
-  param:   { module: registration, action: closed }
+  param:   { module: registration, action: closed, nav: reg }
   requirements:
     sf_method: [get]
 
 registration_confirm:
   url:   inscriptions/confirmation
-  param:   { module: registration, action: confirm }
+  param:   { module: registration, action: confirm, nav: reg }
   requirements:
     sf_method: [get]
 
@@ -97,7 +104,7 @@ registration_edit_player:
   url:   inscriptions/edit/:token
   class:   sfDoctrineRoute
   options: { model: Player,   type: object }
-  param:   { module: registration, action: editPlayer }
+  param:   { module: registration, action: editPlayer, nav: reg }
   requirements:
     sf_method: [get, post]
 
@@ -105,7 +112,13 @@ registration_cancel_player:
   url:   inscriptions/cancel/:token
   class:   sfDoctrineRoute
   options: { model: Player,   type: object }
-  param:   { module: registration, action: cancelPlayer }
+  param:   { module: registration, action: cancelPlayer, nav: reg }
   requirements:
     sf_method: [get]
-  
+
+# live rules
+live_index:
+  url:   live
+  param:   { module: live, action: index, nav: live }
+  requirements:
+    sf_method: [get]

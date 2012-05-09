@@ -110,7 +110,7 @@ class registrationActions extends sfActions
 
     $this->player->delete();
 
-    $this->getUser()->setFlash('notice', "La désinscription de $firstName $lastName a bien été prise en compte.", false);
+    $this->getUser()->setFlash('notice', "La désinscription de $firstName $lastName a bien été prise en compte.", true);
 
     $this->redirect("home/index");
   }

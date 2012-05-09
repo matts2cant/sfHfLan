@@ -1,14 +1,14 @@
 <?php
 
 /**
- * home actions.
+ * live actions.
  *
  * @package    sfHfLan
- * @subpackage home
+ * @subpackage live
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class homeActions extends sfActions
+class liveActions extends sfActions
 {
  /**
   * Executes index action
@@ -17,9 +17,6 @@ class homeActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
-    $this->blogArticles = ArticleTable::getInstance()->getFourLastArticles();
-    $this->sliderArticles = ArticleTable::getInstance()->getFourLastSliderArticles();
 
-    $event = EventTable::getInstance()->findUpComingEvent();
   }
 }

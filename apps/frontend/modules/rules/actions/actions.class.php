@@ -10,5 +10,8 @@
  */
 class rulesActions extends sfActions
 {
-    
+  public function executeIndex()
+  {
+
+  }
 }

@@ -1,36 +1,22 @@
-<?php use_stylesheet('blog.css') ?>
+<div class="tabbable">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#1" data-toggle="tab">News</a></li>
+    <li><a href="#2" data-toggle="tab">Règlements</a></li>
+    <li><a href="#3" data-toggle="tab">Chat</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="1">
+      <?php include_partial('blog/list', array('blogArticles' => $blogArticles)); ?>
+      <ul class="pager">
+        <li><a class="other" href="<?php echo url_for('blog/list'); ?>">Autres articles</a></li>
+      </ul>
 
-<?php use_javascript('contentslider.js') ?>
-<?php use_javascript('tabs.js') ?>
-
-<div class="news_events">
-    <!-- tabs -->	
-    <div class="tabwrapper">
-        <div class="tabs_links">
-            <ul>
-                <li class="active"><a href="#tab1">NEWS</a></li>
-                <li><a href="#tab2">REGLEMENTS</a></li>
-                <li><a href="#tab3">SHOUTBOX</a></li>
-            </ul>
-        </div>
-        <div class="tab_content" id="tab1" style="display: block;">
-            <?php include_partial('blog/list', array('blogArticles' => $blogArticles)); ?>
-            <br/>
-            <center>
-                <a class="other" href="<?php echo url_for('blog/list'); ?>">Autres articles</a>
-            </center>
-            <div class="clear"></div>
-        </div>
-
-        <div class="tab_content" id="tab2" style="display: none; ">
-            <?php include_partial("rules/list", array('games' => $games)); ?>
-            <div class="clear"></div>
-        </div>
-
-        <div class="tab_content" id="tab3" style="display: none; ">
-            Cette fonctionnalité est en cours de développement :)
-            <div class="clear"></div>
-        </div>
-    </div>   		
-    <div class="clear"></div>
+    </div>
+    <div class="tab-pane" id="2">
+      <?php include_component("rules", "list"); ?>
+    </div>
+    <div class="tab-pane" id="3">
+      <?php include_partial("chat/chat");?>
+    </div>
+  </div>
 </div>

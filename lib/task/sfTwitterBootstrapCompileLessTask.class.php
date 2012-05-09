@@ -30,5 +30,6 @@ EOF;
   protected function execute($arguments = array(), $options = array())
   {
     system("lessc www/less/bootstrap.less > www/css/bootstrap.css");
+    system("lessc www/less/responsive.less > www/css/bootstrap-responsive.css");
   }
 }

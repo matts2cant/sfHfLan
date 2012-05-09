@@ -1,6 +1,4 @@
-<?php use_stylesheet('sidebox.css') ?>
-
-<div id="infobox" class="sidebox">
+<div id="infobox" class="well">
     <h2>Qui sommes nous ?</h2>
     <br/>
     <p>

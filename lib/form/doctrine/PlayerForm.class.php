@@ -12,7 +12,7 @@ class PlayerForm extends BasePlayerForm
 {
   public function configure()
   {
-    unset($this['created_at'], $this['updated_at'], $this['token']);
+    unset($this['created_at'], $this['updated_at']);
 
     $this->setWidget('email', new sfWidgetFormInput());
     $this->setValidator('email', new sfValidatorEmail());

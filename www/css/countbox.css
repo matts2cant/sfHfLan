@@ -41,7 +41,7 @@
 .countdown_amount {
     font-size: 200%;
     font-weight: bold;
-    color: #595959;
+    color: #333;
 }
 .countdown_descr {
     display: block;

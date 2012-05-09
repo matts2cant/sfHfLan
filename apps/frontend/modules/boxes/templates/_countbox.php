@@ -1,8 +1,6 @@
 <?php use_stylesheet('sidebox.css'); ?>
-<?php use_stylesheet('countbox.css'); ?>
-<?php use_javascript('jquery.countdown.js'); ?>
 
-<div id="countbox" class="sidebox">
+<div id="countbox" class="well">
   <h2>Prochaine LAN</h2>
   <?php if($event): ?>
     <div id="defaultCountdown"></div>

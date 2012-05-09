@@ -6,4 +6,9 @@ class boxesComponents extends sfComponents
   {
     $this->event = EventTable::getInstance()->findUpComingEvent();
   }
+
+  public function executePartnersbox()
+  {
+    $this->partners = PartnerTable::getInstance()->getAll();
+  }
 }

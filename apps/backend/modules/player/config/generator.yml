@@ -16,7 +16,7 @@ generator:
       fields:  ~
       list:
         title: Gestion des joueurs
-        display: [=firstname, =lastname, email, created_at]
+        display: [=firstname, =lastname, nickname, Team, email, created_at]
         actions:
           _new: ~
           booking: { label: Booking }

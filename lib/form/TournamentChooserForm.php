@@ -17,7 +17,7 @@ class TournamentChooserForm extends BaseForm
     
     $this->setWidget('tournament', new sfWidgetFormChoice(array(
               'choices' => $tournaments,
-              'expanded' => true
+              'expanded' => false
             )));
 
     $this->setValidator('tournament', new sfValidatorChoice(array(

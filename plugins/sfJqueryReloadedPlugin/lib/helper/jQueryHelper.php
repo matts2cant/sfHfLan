@@ -27,7 +27,7 @@ sfContext::getInstance()->getResponse()->addJavascript($jq_path, 'first');
  * autocomplete
  *
  * This is useful to app developers when the normal "just in time" approach 
- * doesn't work. For instance, if you are making helper calls in layout.php (or
+ * doesn't work. For instance, if you are making helper calls in layout.old.php (or
  * components invoked by it...) and you have already called get_javascripts, 
  * it's too late to rely on the automatic calls to jq_add_plugin in the 
  * various helpers. So call this early instead, right after use_helper.

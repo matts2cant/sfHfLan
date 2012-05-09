@@ -40,3 +40,13 @@
 	background-color: #adccd6;
 }
 
+#menu ul .highlight
+{
+    background-color: #db7f2c;
+}
+
+#menu ul .highlight:hover
+{
+    background-color: #ff9534;
+}
+

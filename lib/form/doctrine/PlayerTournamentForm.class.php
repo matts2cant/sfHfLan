@@ -14,6 +14,8 @@ class PlayerTournamentForm extends PlayerForm
   {
     parent::configure();
 
+    unset($this['token']);
+
     $this->widgetSchema->setLabels(array(
       'firstname'    => 'Prénom<br/><span class="small">First name</span>',
       'lastname'   => 'Nom<br/><span class="small">Last Name</span>',
