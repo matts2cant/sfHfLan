@@ -12,10 +12,23 @@ default:
     #language:     en
     #robots:       index, follow
 
-  stylesheets:    []
-
-  javascripts:    []
-
   has_layout:     true
-  layout:         layout
+  stylesheets:
+    - /css/bootstrap.css # compiled css are now in the docs
+    - /sfTwitterBootstrapPlugin/css/style.css
+    - /sfTwitterBootstrapPlugin/css/jquery-ui-1.8.16.custom.css # For date pickers ...
+    - backend.css
+    - fonts.css
+
+  javascripts:
+    - "/sfTwitterBootstrapPlugin/js/jquery-1.7.min.js"
+    - "/sfTwitterBootstrapPlugin/js/jquery.tablesorter.min.js"
+    - "/sfTwitterBootstrapPlugin/js/google-code-prettify/prettify.js"
+    - "/js/bootstrap.min.js"
+    - "/sfTwitterBootstrapPlugin/js/application.js"
+    - "/sfTwitterBootstrapPlugin/js/bootbox/bootbox.min.js"
+    - "/sfTwitterBootstrapPlugin/js/jquery-ui-1.8.16.custom.min.js"
+    - "/js/tiny_mce/tiny_mce.js"
+
+  layout:         %SF_PLUGINS_DIR%/sfTwitterBootstrapPlugin/templates/layout
 

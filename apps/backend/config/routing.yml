@@ -79,7 +79,7 @@ sf_guard_password:
 # default rules
 homepage:
   url:   /
-  param: { module: dashboard, action: index  }
+  param: { module: sfTwitterBootstrap, action: dashboard }
 
 # generic rules
 # please, remove them by adding more specific rules

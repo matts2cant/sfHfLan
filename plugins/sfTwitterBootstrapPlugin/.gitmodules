@@ -1,0 +1,6 @@
+[submodule "web/bootstrap"]
+	path = web/bootstrap
+	url = git://github.com/twitter/bootstrap.git
+[submodule "web/js/bootbox"]
+	path = web/js/bootbox
+	url = git://github.com/makeusabrew/bootbox.git

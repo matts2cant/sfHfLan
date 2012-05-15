@@ -1,0 +1,47 @@
+/* ----------------------------------------
+    Colors by env
+----------------------------------------- */
+.dev .navbar-inner {
+  background-color: #ff4020;
+  background-image: linear-gradient(top, #FF4120, #FF8120);
+  background-image: -o-linear-gradient(top, #FF4120, #FF8120);
+  background-image: -moz-linear-gradient(top, #FF4120, #FF8120);
+  background-image: -webkit-linear-gradient(top, #FF4120, #FF8120);
+  background-image: -ms-linear-gradient(top, #FF4120, #FF8120);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FF4120), to(#FF8120));
+}
+
+.dev.navbar .dropdown-menu li > a:hover, .dev.navbar .dropdown-menu .active > a, .dev.navbar .dropdown-menu .active > a:hover {
+  background-color: #FF4120;
+}
+
+.preprod .navbar-inner{
+  background-color: purple;
+  background-image: linear-gradient(top, #e060ff, purple);
+  background-image: -o-linear-gradient(top, #e060ff, purple);
+  background-image: -moz-linear-gradient(top, #e060ff, purple);
+  background-image: -webkit-linear-gradient(top, #e060ff, purple);
+  background-image: -ms-linear-gradient(top, #e060ff, purple);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e060ff), to(purple));
+}
+
+.preprod.navbar .dropdown-menu li > a:hover,
+.preprod.navbar .dropdown-menu .active > a,
+.preprod.navbar .dropdown-menu .active > a:hover { background-color: #e060ff; }
+
+.dev.navbar .nav > li > a,
+.preprod.navbar .nav > li > a,
+p.logged { color: white; }
+
+.dev.navbar .nav > li > a:hover,
+.preprod.navbar .nav > li > a:hover { color: black; }
+
+.dev p.logged a, .preprod p.logged a {
+  color: black;
+}
+
+.dev.navbar .caret, .preprod.navbar .caret {
+  opacity: 0.7;
+  -moz-opacity: 0.7;
+  filter:alpha(opacity=7);
+}

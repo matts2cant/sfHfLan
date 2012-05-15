@@ -35,7 +35,7 @@ all:
     # Enable the database manager
     use_database:           true
     
-    enabled_modules: [default, sfGuardAuth, sfGuardGroup, sfGuardPermission, sfGuardUser]
+    enabled_modules: [default, sfAdminDash, sfTwitterBootstrap, sfGuardAuth, sfGuardGroup, sfGuardPermission, sfGuardUser]
     
     sf_rich_text_js_dir: js/tiny_mce
     

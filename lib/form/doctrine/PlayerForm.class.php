@@ -23,6 +23,8 @@ class PlayerForm extends BasePlayerForm
     $this->setWidget('bnet_ccode', new sfWidgetFormInput());
     $this->setValidator('bnet_ccode', new sfValidatorInteger(array("required" => false)));
 
+    $this->setValidator('token', new sfValidatorPass(array("required" => false)));
+
     if(!$this->isNew())
     {
       $tournament = $this->getObject()->getTournament();

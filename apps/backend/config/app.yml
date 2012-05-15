@@ -4,29 +4,46 @@
 # default values
   
 all:
-  sf_admin_dash:
+  sf_twitter_bootstrap:
+    site:                   hf.lan
+    # if you want top links to fieldset legend in new/edit page (like "Admin & Content" in the edit screenshot)
+    top_link_to_fieldset:   true
+    # if you *also* want to display the pagination on top of the list
+    display_top_pagination: true
+
+    breadcrumb_root_name: Home
+
     categories:
       Contenu:
         items:
           Articles:
             url:          article
-          Categories:
-            url:          category
-          Partner:
+            image:        data_icon
+          Partenaires:
             url:          partner
+            image:        briefcase
       Lans:
         items:
           Évènements:
             url:          event
+            image:        calendar
           Tournois:
             url:          tournament
+            image:        medal
           Jeux:
             url:          game
+            image:        game-controller
+          Joueurs:
+            url:          player
+            image:        user
       Utilisateurs:
         items:
           Utilisateurs:
             url:          guard/users
+            image:        user
           Groupes:
             url:          guard/groups
+            image:        users
           Permissions:
             url:          guard/permissions
+            image:        permission_icon

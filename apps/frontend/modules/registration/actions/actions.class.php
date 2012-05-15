@@ -125,8 +125,6 @@ class registrationActions extends sfActions
     $this->forward404Unless($players);
     $this->forward404Unless($tournament and $tournament instanceof Tournament);
 
-    $this->forwardIf($tournament->isFull(), "registration", "full");
-
     foreach($players as $player)
     {
       $this->sendConfirmationMail($player);

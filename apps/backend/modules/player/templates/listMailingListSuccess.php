@@ -1,10 +1,10 @@
-<?php use_stylesheet('code.css') ?>
+<h2 class="mbl">
+  Génération de mailing-list
+</h2>
 
-<h1>Génération de mailing-list</h1>
-<h2>Lien</h2>
-<a href="mailto:<?php echo $link; ?>">&raquo; Cliquez ici</a>
-
-<h2>Texte</h2>
-<div class="code">
+<div class="well">
   <?php echo $emails; ?>
 </div>
+
+<a class="btn mlm" href="<?php echo url_for("player") ?>"><i class="icon-list-alt"></i> Back to list</a>
+<a class="btn btn-primary" href="mailto:<?php echo $link; ?>">Send mail</a>

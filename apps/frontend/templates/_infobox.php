@@ -5,7 +5,7 @@
         La hf.lan est un évènement videoludique, 
         plus couramment appelé LAN.
         Elle est organisée par les étudiants 
-        d'ESIEE Engineering dans les locaux de
+        d'ESIEE Paris dans les locaux de
         leur école. 
         Cet évènement n’est pas uniquement
         réservé aux étudiants du campus mais
