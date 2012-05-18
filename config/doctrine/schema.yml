@@ -42,6 +42,8 @@ Tournament:
     name:                 { type: string(255), notnull: true}
     number_of_teams:      { type: integer, notnull: true }
     inscription_price:    { type: integer }
+    embedded_player:      { type: string }
+    bracket_image:        { type: string }
     event_id:             { type: integer, notnull: true }
     game_id:              { type: integer, notnull: false }
     is_subtournament_enabled: { type: boolean, default: false }
@@ -50,7 +52,7 @@ Tournament:
   relations:
     Event:    { onDelete: CASCADE, local: event_id, foreign: id, foreignAlias: Tournaments }
     Game:     { onDelete: CASCADE, local: game_id, foreign: id, foreignAlias: Tournaments }
-    
+
 Game:
   actAs:
     Sluggable:

@@ -17,6 +17,14 @@ class liveActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
+    $this->tournaments = EventTable::getInstance()->findUpComingEvent()->getTournaments();
 
+    foreach($this->tournaments as $id => $tournament)
+    {
+      if($tournament->getEmbeddedPlayer() == '' && $tournament->getBracketImage() == '')
+      {
+        $this->tournaments->remove($id);
+      }
+    }
   }
 }
