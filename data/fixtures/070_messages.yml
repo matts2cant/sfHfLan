@@ -1,0 +1,9 @@
+Message:
+  msg_01:
+    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    author: kevin12ans
+    email: kevin12ans@yopmail.com
+  msg_02:
+    text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    author: bisounours
+    email: bisounours@yopmail.com

@@ -22,15 +22,15 @@
     $i = 1;
     foreach ($tournaments as $tournament): ?>
       <div class="tab-pane<?php echo $first ? ' active' : '';?>" id="tab<?php echo $i; ?>">
+        <?php if($tournament->getBracketImage() != ""):?>
+        <ul class="pager">
+          <li><a class="other" href="<?php echo "/uploads/tournaments/brackets/".$tournament->getBracketImage(); ?>">Consulter l'arbre du tournoi</a></li>
+        </ul>
+        <?php endif; ?>
         <?php if($tournament->getEmbeddedPlayer() != ""):?>
         <div>
           <?php echo $tournament->getEmbeddedPlayer(ESC_RAW); ?>
         </div>
-        <?php endif; ?>
-        <?php if($tournament->getBracketImage() != ""):?>
-          <ul class="pager">
-            <li><a class="other" href="<?php echo "/uploads/tournaments/brackets/".$tournament->getBracketImage(); ?>">Consulter l'arbre du tournoi</a></li>
-          </ul>
         <?php endif; ?>
       </div>
       <?php
@@ -42,5 +42,4 @@
     </div>
   </div>
 </div>
-<hr/>
-<?php include_partial("chat/chat"); ?>
+<?php //include_partial("chat/chat"); ?>

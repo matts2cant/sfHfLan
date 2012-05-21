@@ -17,9 +17,9 @@ class TournamentForm extends BaseTournamentForm
     $this->widgetSchema['bracket_image'] = new sfWidgetFormInputFileEditable(array(
       'label'     => 'Arbre du tournoi',
       'file_src'  => '/uploads/tournaments/brackets/'.$this->getObject()->getBracketImage(),
-      'is_image'  => true,
+      'is_image'  => false,
       'edit_mode' => !$this->isNew(),
-      'template'  => $this->getObject()->getBracketImage() != '' ? '<div>%file%<br/>%input%<br />%delete% %delete_label%</div>' : '<div>%input%<br />%delete% %delete_label%</div>',
+      'template'  => $this->getObject()->getBracketImage() != '' ? '<div><a href=%file% >Fichier</a><br/>%input%<br />%delete% %delete_label%</div>' : '<div>%input%<br />%delete% %delete_label%</div>',
       'delete_label' => 'supprimer'
     ));
 
@@ -28,7 +28,7 @@ class TournamentForm extends BaseTournamentForm
     $this->validatorSchema['bracket_image'] = new sfValidatorFile(array(
       'required'   => false,
       'path'       => sfConfig::get('sf_upload_dir').'/tournaments/brackets',
-      'mime_types' => array('image/gif', 'image/jpeg', 'image/png', 'image/svg+xml'),
+      'mime_types' => array('application/pdf', 'image/gif', 'image/jpeg', 'image/png', 'image/svg+xml'),
     ));
   }
 }

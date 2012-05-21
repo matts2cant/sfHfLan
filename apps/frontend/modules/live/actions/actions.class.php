@@ -17,7 +17,7 @@ class liveActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
-    $this->tournaments = EventTable::getInstance()->findUpComingEvent()->getTournaments();
+    $this->tournaments = EventTable::getInstance()->findLastEvent()->getTournaments();
 
     foreach($this->tournaments as $id => $tournament)
     {

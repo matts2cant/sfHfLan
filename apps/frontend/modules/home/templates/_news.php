@@ -16,6 +16,9 @@
       <?php include_component("rules", "list"); ?>
     </div>
     <div class="tab-pane" id="3">
+      <div class="alert alert-error">
+        Pour accéder au chat des tournois, merci de vous rendre sur la page <a href="<?php echo url_for('live/index');?>">live</a>
+      </div>
       <?php include_partial("chat/chat");?>
     </div>
   </div>

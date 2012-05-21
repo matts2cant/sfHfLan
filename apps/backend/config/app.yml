@@ -19,6 +19,9 @@ all:
           Articles:
             url:          article
             image:        data_icon
+          Message:
+            url:          message
+            image:        data_icon
           Partenaires:
             url:          partner
             image:        briefcase

@@ -122,3 +122,10 @@ live_index:
   param:   { module: live, action: index, nav: live }
   requirements:
     sf_method: [get]
+
+# live rules
+guestbook_index:
+  url:   guestbook
+  param:   { module: guestbook, action: index, nav: guestbook }
+  requirements:
+    sf_method: [get, post]

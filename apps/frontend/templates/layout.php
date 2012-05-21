@@ -83,6 +83,12 @@
             <li class="<?php echo $nav == "reg" ? "active" : ""; ?>">
               <a href="<?php echo url_for("registration/index"); ?>">Inscriptions</a>
             </li>
+            <li class="<?php echo $nav == "reg" ? "active" : ""; ?>">
+              <a href="<?php echo url_for("registration/index"); ?>">Inscriptions</a>
+            </li>
+            <li class="<?php echo $nav == "guestbook" ? "active" : ""; ?>">
+              <a href="<?php echo url_for("guestbook/index"); ?>">Guestbook</a>
+            </li>
           </ul>
           <form class="navbar-search pull-right" method="post" name="search_form" action="<?php echo url_for("blog/search"); ?>">
             <input type="text" name="search" class="search-query" placeholder="Search">

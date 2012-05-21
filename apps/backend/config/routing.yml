@@ -1,3 +1,12 @@
+message:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Message
+    module:               message
+    prefix_path:          /message
+    column:               id
+    with_wildcard_routes: true
+
 player:
   class: sfDoctrineRouteCollection
   options:

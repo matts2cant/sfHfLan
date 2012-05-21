@@ -23,9 +23,18 @@ class EventTable extends Doctrine_Table
         $query = $this->createQuery('ev')->
                 where("ev.starts_at > ?", $now)->
                 andWhere("ev.is_public = ?", true)->
-                orderBy('starts_at ASC')->
+                orderBy('starts_at DESC')->
                 limit(1);
         
+        return $query->fetchOne();
+    }
+
+    public function findLastEvent()
+    {
+        $query = $this->createQuery('ev')->
+                orderBy('starts_at DESC')->
+                limit(1);
+
         return $query->fetchOne();
     }
 }

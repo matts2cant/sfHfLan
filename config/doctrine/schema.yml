@@ -102,3 +102,12 @@ Partner:
     description:  { type: text }
     sort_index:   { type: integer }
     url:          { type: string(255), notnull: true }
+
+Message:
+  actAs:
+    Timestampable: ~
+  columns:
+    author: { type: string(64), notnull: true }
+    email: { type: string(64) }
+    note: { type: integer }
+    text: { type: string, notnull: true }
