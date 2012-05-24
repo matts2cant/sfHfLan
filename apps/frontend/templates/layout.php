@@ -83,9 +83,6 @@
             <li class="<?php echo $nav == "reg" ? "active" : ""; ?>">
               <a href="<?php echo url_for("registration/index"); ?>">Inscriptions</a>
             </li>
-            <li class="<?php echo $nav == "reg" ? "active" : ""; ?>">
-              <a href="<?php echo url_for("registration/index"); ?>">Inscriptions</a>
-            </li>
             <li class="<?php echo $nav == "guestbook" ? "active" : ""; ?>">
               <a href="<?php echo url_for("guestbook/index"); ?>">Guestbook</a>
             </li>
@@ -115,9 +112,9 @@
       <?php echo $sf_content;?>
     </div>
     <div class="span3">
-      <?php include_component("boxes", "partnersbox"); ?>
       <?php include_partial("global/infobox"); ?>
       <?php include_component("boxes", "countbox"); ?>
+      <?php include_component("boxes", "partnersbox"); ?>
     </div>
   </div>
   <hr/>
