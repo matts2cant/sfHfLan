@@ -15,31 +15,26 @@
 <head>
   <title><?php include_slot('title', 'hf.lan'); ?></title>
   <?php include_http_metas() ?>
+  <meta property="og:title" content="hf-lan" />
+  <meta property="og:type" content="game" />
+  <meta property="og:url" content="http://www.hf-lan.fr" />
+  <meta property="og:image" content="http://www.hf-lan.fr/images/logo.png" />
+  <meta property="og:site_name" content="hf.lan" />
+  <meta property="fb:admins" content="556452871" />
   <?php include_metas() ?>
   <link rel="shortcut icon" href="/favicon.ico"/>
   <?php include_stylesheets() ?>
   <?php include_javascripts() ?>
-  <script type="text/javascript">
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-29190283-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function () {
-      var ga = document.createElement('script');
-      ga.type = 'text/javascript';
-      ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(ga, s);
-    })();
-
-  </script>
+  <?php include_partial('global/analytics_tracker'); ?>
 </head>
 <body>
 <div class="topline"></div>
 <div class="container">
   <div id="header">
+    <div class="social-buttons">
+      <a href="http://www.facebook.com/hf.lan.esiee" class="social-icon facebook"></a>
+      <a href="http://www.flickr.com/photos/esieephoto/sets/72157629813296204/" class="social-icon flickr"></a>
+    </div>
   </div>
   <div class="navbar">
     <div class="navbar-inner">

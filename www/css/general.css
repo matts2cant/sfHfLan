@@ -58,3 +58,46 @@ body
 {
     color: #FF0000;
 }
+
+.social-buttons
+{
+    margin-top: 75px;
+    float: right;
+}
+
+.social-icon
+{
+    height: 36px;
+    width: 37px;
+    float: left;
+}
+
+.social-icon.facebook
+{
+    background-image: url('../images/icons/social/facebook.png')
+}
+
+.social-icon.facebook:active
+{
+    background-image: url('../images/icons/social/facebook_pressed.png')
+}
+
+.social-icon.twitter
+{
+    background-image: url('../images/icons/social/twitter.png')
+}
+
+.social-icon.twitter:active
+{
+    background-image: url('../images/icons/social/twitter_pressed.png')
+}
+
+.social-icon.flickr
+{
+    background-image: url('../images/icons/social/flickr.png')
+}
+
+.social-icon.flickr:active
+{
+    background-image: url('../images/icons/social/flickr_pressed.png')
+}

@@ -66,9 +66,13 @@
       </td>
     </tr>
     <tr>
-      <th colspan="4">
+      <td colspan="2">
+        <?php echo $form['captcha']; ?>
+        <?php echo $form['captcha']->renderError() ?>
+      </td>
+      <td colspan="2">
         <input class="btn btn-primary" type="submit" value="Signer le livre d'or"/>
-      </th>
+      </td>
     </tr>
   </table>
 </form>

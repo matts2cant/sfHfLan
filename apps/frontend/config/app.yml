@@ -5,3 +5,7 @@
 all:
   max_blog_on_page: 10
   max_msg_on_page: 10
+
+  recaptcha:
+    private_key: "6LckwtISAAAAAJHTdwP-YDyNVJHH3oKjaAAts2g9"
+    public_key:  "6LckwtISAAAAALnTYaLIe2xiklQ4q-7x93yOiaMS"
