@@ -101,3 +101,15 @@ body
 {
     background-image: url('../images/icons/social/flickr_pressed.png')
 }
+
+.navbar-search .search-query {
+    -moz-transition: background .3s, width .3s;
+    -ms-transition: background .3s, width .3s;
+    -o-transition: background .3s, width .3s;
+    transition: background .3s, width .3s;
+    width: 150px;
+}
+.navbar-search .search-query:focus,
+.navbar-search .search-query.focused {
+    width: 200px;
+}
