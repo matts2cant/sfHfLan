@@ -146,7 +146,7 @@
   Le paiement
 </h2>
 <p>
-  Trois méthodes de paiement sont disponibles :
+  Deux méthodes de paiement sont disponibles :
 </p>
 <ul>
   <li>Au BDE Esiee Engineering (voir section <a href="<?php echo url_for("access/index");?>">accès</a>)</li>
