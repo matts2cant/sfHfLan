@@ -6,10 +6,12 @@
 <?php use_stylesheet('general.css') ?>
 <?php use_stylesheet('fonts.css') ?>
 <?php use_stylesheet('countbox.css'); ?>
+<?php use_stylesheet('lightbox.css'); ?>
 
 <?php use_javascript('jquery.countdown.js'); ?>
 <?php use_javascript('jquery-1.7.min.js', 'first') ?>
 <?php use_javascript('bootstrap.min.js') ?>
+<?php use_javascript('lightbox.js') ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
