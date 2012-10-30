@@ -28,6 +28,7 @@ class infosActions extends sfActions
       // Start & end date
       $start = strtotime($event->getStartsAt());
       $finish = strtotime($event->getFinishesAt());
+      $monthList = array(1=>'janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre');
       setlocale(LC_TIME, 'fr_FR');
       if (strftime("%Y", $start) == strftime("%Y", $finish))
       {
@@ -37,14 +38,14 @@ class infosActions extends sfActions
         }
         else
         {
-          $this->startDate = strftime("%d %B", $start);
+          $this->startDate = strftime("%d ", $start).$monthList[strftime("%m", $start)];
         }
       }
       else
       {
-        $this->startDate = strftime("%d %B %Y", $start);
+        $this->startDate = strftime("%d ".$monthList[strftime("%m", $start)]." %Y", $start);
       }
-      $this->endDate = strftime("%d %B %Y", $finish);
+      $this->endDate = strftime("%d ".$monthList[strftime("%m", $finish)]." %Y", $finish);
 
       // Start & end time
       $this->startTime = strftime("%H:%M", $start);
