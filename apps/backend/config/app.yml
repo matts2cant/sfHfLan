@@ -21,7 +21,10 @@ all:
             image:        data_icon
           Message:
             url:          message
-            image:        data_icon
+            image:        star
+          Spam:
+            url:          spam
+            image:        button-cross
           Partenaires:
             url:          partner
             image:        briefcase
