@@ -12,9 +12,7 @@ class sfValidatorNoSpam extends sfValidatorBase
         if(preg_match('#< *a *href *= *".+" *>.+< */ *a *>#i', $value))
             throw new sfValidatorError($this, 'Pas de HTML');
 
-        $spams = Doctrine::getTable('Spam')
-            ->createQuery('a')
-            ->execute()->toArray();
+        $spams = SpamTable::getInstance()->findAll()->toArray();
 
         foreach($spams as $spam)
         {

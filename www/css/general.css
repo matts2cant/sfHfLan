@@ -113,3 +113,7 @@ body
 .navbar-search .search-query.focused {
     width: 200px;
 }
+
+.partner img{
+    max-width: 100%;
+}
