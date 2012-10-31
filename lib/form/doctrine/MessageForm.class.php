@@ -14,6 +14,10 @@ class MessageForm extends BaseMessageForm
   {
     $this->setValidator("email", new sfValidatorEmail(array("required" => false)));
     $this->setValidator("note", new sfValidatorInteger(array("min" => 0, "max" => 20, "required" => false)));
+    $this->validatorSchema['text'] = new sfValidatorAnd(array(
+      $this->validatorSchema['text'],
+      new sfValidatorNoSpam(),
+    ));
 
     $this->setWidget("captcha", new sfWidgetFormReCaptcha(array(
       'public_key' => sfConfig::get('app_recaptcha_public_key')
