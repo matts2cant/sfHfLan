@@ -9,8 +9,11 @@ class sfValidatorNoSpam extends sfValidatorBase
 
     protected function doClean($value)
     {
-        if(preg_match('#< *a *href *= *".+" *>.+< */ *a *>#i', $value))
-            throw new sfValidatorError($this, 'Pas de HTML');
+        if(preg_match('#< *a *href *= *"?.+"? *>.+< */ *a *>#i', $value))
+            throw new sfValidatorError($this, 'Link found');
+
+        if(preg_match('#https?://|\w\.(com|net|fr)\W#', $value) !== false)
+            throw new sfValidatorError($this, 'Url found');
 
         $spams = SpamTable::getInstance()->findAll()->toArray();
 
@@ -19,7 +22,7 @@ class sfValidatorNoSpam extends sfValidatorBase
             $domain = preg_replace('#\.[a-z]{2,3}$#', '', $spam['url']);
             $domain = preg_replace('#^https?://(w{3}\.)?#', '', $domain);
             if(strpos($value, $domain) !== false)
-                throw new sfValidatorError($this, 'Spam détecté');
+                throw new sfValidatorError($this, 'Spam detected');
         }
 
         return $value;
