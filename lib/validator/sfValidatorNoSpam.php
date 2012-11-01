@@ -12,7 +12,7 @@ class sfValidatorNoSpam extends sfValidatorBase
         if(preg_match('#< *a *href *= *"?.+"? *>.+< */ *a *>#i', $value))
             throw new sfValidatorError($this, 'Link found');
 
-        if(preg_match('#https?://|\w\.(com|net|fr)\W#', $value) !== false)
+        if(preg_match('#https?://|\w\.(com|net|fr)(\W|$)#', $value))
             throw new sfValidatorError($this, 'Url found');
 
         $spams = SpamTable::getInstance()->findAll()->toArray();
