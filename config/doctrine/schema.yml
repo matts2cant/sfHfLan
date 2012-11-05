@@ -111,3 +111,9 @@ Message:
     email: { type: string(64) }
     note: { type: integer }
     text: { type: string, notnull: true }
+
+Spam:
+  actAs:
+    Timestampable: ~
+  columns:
+    url: { type: string(64), notnull: true }
