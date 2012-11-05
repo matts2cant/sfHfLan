@@ -71,9 +71,9 @@
             <li class="<?php echo $nav == "contact" ? "active" : ""; ?>">
               <a href="<?php echo url_for("contact/index"); ?>">Contact</a>
             </li>
-            <li class="<?php echo $nav == "archives" ? "active" : ""; ?>">
-              <a href="<?php echo url_for("archives/index"); ?>">Archives</a>
-            </li>
+            <!--<li class="<?php /*echo $nav == "archives" ? "active" : ""; */?>">
+              <a href="<?php /*echo url_for("archives/index"); */?>">Archives</a>
+            </li>-->
             <li class="last <?php echo $nav == "live" ? "active" : ""; ?>">
               <a href="<?php echo url_for("live/index"); ?>">Live</a>
             </li>

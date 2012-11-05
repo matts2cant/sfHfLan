@@ -9,6 +9,10 @@
     </small>
   </h1>
 </div>
+    <div class="alert alert-block">
+        <h3>Les adresses mail doivent être valides !</h3>
+        <p>L'adresse mail de chaque joueur doit être valide affin de confirmer l'inscription de l'équipe. Un message contenant toutes vos informations personelles ainsi que vos lien pour modifier/suprimer votre profile vous serrons envoyé.</p>
+    </div>
 <form method="post" action="<?php echo url_for("registration/step2"); ?>">
   <table class="table">
     <?php echo $form ?>
