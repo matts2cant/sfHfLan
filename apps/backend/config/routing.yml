@@ -1,3 +1,12 @@
+spam:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Spam
+    module:               spam
+    prefix_path:          /spam
+    column:               id
+    with_wildcard_routes: true
+
 message:
   class: sfDoctrineRouteCollection
   options:

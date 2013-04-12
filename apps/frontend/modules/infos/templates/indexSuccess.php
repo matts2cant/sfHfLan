@@ -74,16 +74,16 @@
   <li>Des boissons gratuites!</li>
 </ul>
 <div class="center">
-  <a href="/images/infos/marcel_front.jpg"><img src="/images/infos/mini_marcel_front.png"/></a>
-  <a href="/images/infos/marcel_back.jpg"><img src="/images/infos/mini_marcel_back.png"/></a>
+  <a href="/images/infos/marcel_front.jpg" rel="lightbox[1]"><img src="/images/infos/mini_marcel_front.png"/></a>
+  <a href="/images/infos/marcel_back.jpg" rel="lightbox[1]"><img src="/images/infos/mini_marcel_back.png"/></a>
   <br/>
   <small>
     Amphitheatre M.Dassault - ESIEE
   </small>
 </div>
 <div class="center">
-  <a href="/images/infos/cantine1.jpg"><img src="/images/infos/mini_cantine1.png"/></a>
-  <a href="/images/infos/cantine2.jpg"><img src="/images/infos/mini_cantine2.png"/></a>
+  <a href="/images/infos/cantine1.jpg" rel="lightbox[2]"><img src="/images/infos/mini_cantine1.png"/></a>
+  <a href="/images/infos/cantine2.jpg" rel="lightbox[2]"><img src="/images/infos/mini_cantine2.png"/></a>
   <br/>
   <small>
     Salle de jeu - ESIEE

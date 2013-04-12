@@ -6,10 +6,12 @@
 <?php use_stylesheet('general.css') ?>
 <?php use_stylesheet('fonts.css') ?>
 <?php use_stylesheet('countbox.css'); ?>
+<?php use_stylesheet('lightbox.css'); ?>
 
 <?php use_javascript('jquery.countdown.js'); ?>
 <?php use_javascript('jquery-1.7.min.js', 'first') ?>
 <?php use_javascript('bootstrap.min.js') ?>
+<?php use_javascript('lightbox.js') ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -69,9 +71,9 @@
             <li class="<?php echo $nav == "contact" ? "active" : ""; ?>">
               <a href="<?php echo url_for("contact/index"); ?>">Contact</a>
             </li>
-            <li class="<?php echo $nav == "archives" ? "active" : ""; ?>">
-              <a href="<?php echo url_for("archives/index"); ?>">Archives</a>
-            </li>
+            <!--<li class="<?php /*echo $nav == "archives" ? "active" : ""; */?>">
+              <a href="<?php /*echo url_for("archives/index"); */?>">Archives</a>
+            </li>-->
             <li class="last <?php echo $nav == "live" ? "active" : ""; ?>">
               <a href="<?php echo url_for("live/index"); ?>">Live</a>
             </li>
